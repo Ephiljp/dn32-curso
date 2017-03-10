@@ -18,11 +18,11 @@ namespace ControladorDePedidos.WPF
 {
     public partial class formMarcas : Window
     {
-        RepositorioPadrao repositorio;
+        RepositorioMarca repositorio;
 
         public formMarcas()
         {
-            repositorio = new RepositorioPadrao();
+            repositorio = new RepositorioMarca();
 
             InitializeComponent();
         }

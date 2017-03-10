@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControladorDePedidos.Repositorio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,23 @@ namespace ControladorDePedidos.WPF
     /// </summary>
     public partial class FormCadastroDeProduto : Window
     {
+        RepositorioMarca repositorio;
+
         public FormCadastroDeProduto()
         {
+            repositorio = new RepositorioMarca();
+
             InitializeComponent();
+        }
+
+        
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var marcas = repositorio.Liste();
+
+            cmbMarcas.DataContext = marcas;
+
         }
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)

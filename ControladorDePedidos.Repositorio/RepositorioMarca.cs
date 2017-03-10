@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ControladorDePedidos.Repositorio
 {
-    public class RepositorioPadrao
+    public class RepositorioMarca
     {
         Contexto contexto;
 
-        public RepositorioPadrao()
+        public RepositorioMarca()
         {
            contexto = new Contexto();
 

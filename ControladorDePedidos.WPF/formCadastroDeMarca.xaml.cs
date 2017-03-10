@@ -40,7 +40,7 @@ namespace ControladorDePedidos.WPF
         {
             var codigo = txtCodigo.Text;
             var Nome = txtNome.Text;
-            var repositorio = new RepositorioPadrao();
+            var repositorio = new RepositorioMarca();
 
             if (codigo == "")
             {
