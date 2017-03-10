@@ -23,7 +23,7 @@ namespace ControladorDePedidos.Repositorio
             contexto.Set<Marca>().Add(marca);
             contexto.SaveChanges();
         }
-        public void Atulize(Marca marca)
+        public void Atualize(Marca marca)
         {
             var original = contexto.Set<Marca>().Find(marca.Codigo);
             contexto.Entry(original).CurrentValues.SetValues(marca);
@@ -41,6 +41,7 @@ namespace ControladorDePedidos.Repositorio
 
         public void Excluir(Marca marca)
         {
+            contexto = new Contexto();
             var original = contexto.Set<Marca>().Find(marca.Codigo);
             contexto.Set<Marca>().Remove(original);
             contexto.SaveChanges();

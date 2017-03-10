@@ -61,7 +61,7 @@ namespace ControladorDePedidos.WPF
                     Codigo = int.Parse(codigo),
                     nome = Nome
                 };
-                repositorio.Atulize(marca);   //Atualizar no banco de dados!! 
+                repositorio.Atualize(marca);   //Atualizar no banco de dados!! 
                 
             }
             this.Close();

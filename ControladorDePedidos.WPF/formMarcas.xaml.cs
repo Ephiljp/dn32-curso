@@ -34,6 +34,7 @@ namespace ControladorDePedidos.WPF
 
         private void CarregueElementosDoBancoDeDados()
         {
+
             lstMarcas.DataContext = repositorio.Liste();
             
         }
@@ -65,6 +66,8 @@ namespace ControladorDePedidos.WPF
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
+            
+
             if (lstMarcas.SelectedItem == null)
             {
                 MessageBox.Show("Selecione um item");
@@ -75,7 +78,6 @@ namespace ControladorDePedidos.WPF
                 var itemSelecionado = (Marca)lstMarcas.SelectedItem;
                 repositorio.Excluir(itemSelecionado);
                 CarregueElementosDoBancoDeDados();
-
             }
             
 
