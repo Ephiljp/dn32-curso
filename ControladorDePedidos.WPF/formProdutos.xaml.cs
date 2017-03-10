@@ -35,5 +35,11 @@ namespace ControladorDePedidos.WPF
             var formCadastroDeProduto = new FormCadastroDeProduto();
             formCadastroDeProduto.ShowDialog();
         }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            var formCadastroDeProduto = new FormCadastroDeProduto();
+            formCadastroDeProduto.ShowDialog();
+        }
     }
 }
