@@ -1,0 +1,43 @@
+﻿<Window xmlns:Controls="clr-namespace:dn32ImageButton.Controls;assembly=dn32Layout"  x:Class="ControladorDePedidos.WPF.formProdutos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControladorDePedidos.WPF"
+        mc:Ignorable="d"
+        Title="Produtos" Height="283.406" Width="467.256" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary Source="/dn32Layout;component/Themes/dn32ImageButton.xaml"></ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Controls:dn32ImageButton x:Name="btnNovo" 
+                Text="Novo"
+                Style="{DynamicResource dn32ButtonStyle}"
+                NormalImage="/dn32Layout;component/img/novo.png"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="65" Margin="10,10,0,0" ImageSize="32" FontSize="12" Padding="3"/>
+        <Controls:dn32ImageButton x:Name="btnEditar" 
+            Text="Editar"
+            Style="{DynamicResource dn32ButtonStyle}"
+            NormalImage="/dn32Layout;component/img/editar.png"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="65" Margin="80,10,0,0" ImageSize="32" FontSize="12" Padding="3" />
+        <Controls:dn32ImageButton x:Name="btnDeletar" 
+            Text="Deletar"
+            Style="{DynamicResource dn32ButtonStyle}"
+            NormalImage="/dn32Layout;component/img/excluir.png"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="65" Margin="150,10,0,0" ImageSize="32" FontSize="12" Padding="3"/>
+        <Controls:dn32ImageButton x:Name="btnAtualziar" 
+            Text="Atualizar"
+            Style="{DynamicResource dn32ButtonStyle}"
+            NormalImage="/dn32Layout;component/img/atualizar.png"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="65" Margin="220,10,0,0" ImageSize="32" FontSize="12" Padding="3"/>
+        <Controls:dn32ImageButton x:Name="btnMarcas" 
+            Text="Marcas"
+            Style="{DynamicResource dn32ButtonStyle}"
+            NormalImage="/dn32Layout;component/img/marca.png"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="65" Margin="329,10,0,0" ImageSize="32" FontSize="12" Padding="3" Click="btnMarcas_Click"/>
+
+
+
+
+    </Grid>
+</Window>
