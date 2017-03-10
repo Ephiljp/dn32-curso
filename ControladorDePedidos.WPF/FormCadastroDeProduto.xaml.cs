@@ -15,25 +15,18 @@ using System.Windows.Shapes;
 namespace ControladorDePedidos.WPF
 {
     /// <summary>
-    /// Interaction logic for formProdutos.xaml
+    /// Interaction logic for FormCadastroDeProduto.xaml
     /// </summary>
-    public partial class formProdutos : Window
+    public partial class FormCadastroDeProduto : Window
     {
-        public formProdutos()
+        public FormCadastroDeProduto()
         {
             InitializeComponent();
         }
 
-        private void btnMarcas_Click(object sender, RoutedEventArgs e)
+        private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            var formarca = new formMarcas();
-            formarca.Show();
-        }
 
-        private void btnNovo_Click(object sender, RoutedEventArgs e)
-        {
-            var formCadastroDeProduto = new FormCadastroDeProduto();
-            formCadastroDeProduto.ShowDialog();
         }
     }
 }

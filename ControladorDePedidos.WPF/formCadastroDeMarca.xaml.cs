@@ -1,4 +1,5 @@
 ﻿using ControladorDePedidos.Model;
+using ControladorDePedidos.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,7 @@ namespace ControladorDePedidos.WPF
         {
             var codigo = txtCodigo.Text;
             var Nome = txtNome.Text;
+            var repositorio = new RepositorioPadrao();
 
             if (codigo == "")
             {
@@ -48,7 +50,8 @@ namespace ControladorDePedidos.WPF
 
                     nome = Nome
                 };
-                //Cadastrar no banco de dados!!
+
+                repositorio.Adicione(marca);                //Cadastrar no banco de dados!!
             }
             else
             {
@@ -58,9 +61,11 @@ namespace ControladorDePedidos.WPF
                     Codigo = int.Parse(codigo),
                     nome = Nome
                 };
+                repositorio.Atulize(marca);   //Atualizar no banco de dados!! 
+                
             }
+            this.Close();
 
-            //Atualizar no banco de dados!!
         }
     }
 }

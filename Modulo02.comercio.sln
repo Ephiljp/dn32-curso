@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControladorDePedidos.WPF", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControladorDePedidos.Model", "ControladorDePedidos.Model\ControladorDePedidos.Model.csproj", "{67A42C87-359F-4E20-8131-E72CB810BAD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControladorDePedidos.Repositorio", "ControladorDePedidos.Repositorio\ControladorDePedidos.Repositorio.csproj", "{06C70BFD-9E39-4349-99A8-398A02767EE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{67A42C87-359F-4E20-8131-E72CB810BAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67A42C87-359F-4E20-8131-E72CB810BAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67A42C87-359F-4E20-8131-E72CB810BAD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C70BFD-9E39-4349-99A8-398A02767EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C70BFD-9E39-4349-99A8-398A02767EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C70BFD-9E39-4349-99A8-398A02767EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C70BFD-9E39-4349-99A8-398A02767EE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
