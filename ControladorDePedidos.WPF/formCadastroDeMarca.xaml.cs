@@ -21,6 +21,13 @@ namespace ControladorDePedidos.WPF
     /// </summary>
     public partial class formCadastroDeMarca : Window
     {
+       
+        public formCadastroDeMarca()
+        {
+            InitializeComponent();
+
+        }
+
         public formCadastroDeMarca(Marca marca)
         {
             InitializeComponent();
@@ -30,11 +37,6 @@ namespace ControladorDePedidos.WPF
 
         }
 
-        public formCadastroDeMarca()
-        {
-            InitializeComponent();
-
-        }
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {

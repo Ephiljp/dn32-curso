@@ -16,7 +16,7 @@
                 Text="Usuarios"
                 Style="{DynamicResource dn32ButtonStyle}"
                 NormalImage="/dn32Layout;component/img/usuarios.png"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Height="110" Width="120" Margin="260,126,0,0" ImageSize="50" FontSize="12"/>
+                HorizontalAlignment="Left" VerticalAlignment="Top" Height="110" Width="120" Margin="260,126,0,0" ImageSize="50" FontSize="12" Click="btnUsuarios_Click"/>
 
         <Controls:dn32ImageButton x:Name="btnCompras" 
                 Text="Compras"

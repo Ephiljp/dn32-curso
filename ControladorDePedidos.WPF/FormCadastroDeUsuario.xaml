@@ -1,0 +1,39 @@
+﻿<Window x:Class="ControladorDePedidos.WPF.FormCadastroDeUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControladorDePedidos.WPF"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        xmlns:Controls="clr-namespace:dn32ImageButton.Controls;assembly=dn32Layout" 
+        Title="Cadastro de Usuário" Height="264.161" Width="301.991" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary Source="/dn32Layout;component/Themes/dn32ImageButton.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="0,0,-6,-4">
+        <TextBox Text="{Binding Codigo}" x:Name="txtCodigo" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="78,13,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176"/>
+        <TextBox Text="{Binding Nome}" x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="78,41,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176"/>
+        <TextBlock TextAlignment="Right" x:Name="textBlock" HorizontalAlignment="Left" Margin="32,20,0,0" TextWrapping="Wrap" Text="Código:" VerticalAlignment="Top"/>
+        <TextBlock TextAlignment="Right" x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="38,48,0,0" TextWrapping="Wrap" Text="Nome:" VerticalAlignment="Top"/>
+        <Controls:dn32ImageButton x:Name="btnSalvar" 
+                Text="Salvar"
+                Style="{DynamicResource dn32ButtonStyle}"
+                NormalImage="/dn32Layout;component/img/salvar.png" Margin="0,0,21,13" ImageSize="32" FontSize="12" Padding="3" Click="btnSalvar_Click" HorizontalAlignment="Right" Width="65" Height="61" VerticalAlignment="Bottom"/>
+        <GroupBox x:Name="groupBox" Header="Permissões" HorizontalAlignment="Left" Margin="33,69,0,13" Width="158">
+            <Grid Margin="0,0,0,1">
+                <CheckBox IsChecked="{Binding Administrador}" x:Name="checkBox" Content="Administrador" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top"/>
+                <CheckBox IsChecked="{Binding Clientes}" x:Name="checkBox_Copy" Content="Clientes" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top"/>
+                <CheckBox IsChecked="{Binding Produtos}" x:Name="checkBox_Copy1" Content="Produtos" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top"/>
+                <CheckBox IsChecked="{Binding Vendas}" x:Name="checkBox_Copy4" Content="Vendas" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
+                <CheckBox IsChecked="{Binding Fornecedores}" x:Name="checkBox_Copy2" Content="Fornecedores" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top"/>
+                <CheckBox IsChecked="{Binding Compras}" x:Name="checkBox_Copy3" Content="Compras" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top"/>
+
+            </Grid>
+
+
+        </GroupBox>
+
+    </Grid>
+</Window>
