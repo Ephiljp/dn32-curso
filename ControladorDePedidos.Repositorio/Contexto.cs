@@ -18,6 +18,8 @@ namespace ControladorDePedidos.Repositorio
 
         public DbSet<Usuario> Usuario { get; set; }
 
+        public DbSet<Cliente> Cliente { get; set; }
+
     }
 
 }

@@ -50,7 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto.cs" />
+    <Compile Include="Migrations\201703132037149_InitialCreate.cs" />
+    <Compile Include="Migrations\201703132037149_InitialCreate.Designer.cs">
+      <DependentUpon>201703132037149_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703132050252_cadastro-de-clientes.cs" />
+    <Compile Include="Migrations\201703132050252_cadastro-de-clientes.Designer.cs">
+      <DependentUpon>201703132050252_cadastro-de-clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositorioCliente.cs" />
     <Compile Include="RepositorioUsuario.cs" />
     <Compile Include="RepositorioProduto.cs" />
     <Compile Include="RepositorioMarca.cs" />
@@ -64,6 +74,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703132037149_InitialCreate.resx">
+      <DependentUpon>201703132037149_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703132050252_cadastro-de-clientes.resx">
+      <DependentUpon>201703132050252_cadastro-de-clientes.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
