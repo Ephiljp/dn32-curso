@@ -70,18 +70,32 @@ namespace ControladorDePedidos.WPF
 
             if (lstMarcas.SelectedItem == null)
             {
-                MessageBox.Show("Selecione um item");
+                MessageBox.Show("Selecione uma marca.");
 
+                return;
             }
-            else
+
+            try
             {
                 var itemSelecionado = (Marca)lstMarcas.SelectedItem;
                 repositorio.Excluir(itemSelecionado);
                 CarregueElementosDoBancoDeDados();
             }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                
+
+                MessageBox.Show("Marca em uso no produto.");
+
+            }
+            
+               
+            
             
 
         }
+
+       
 
         private void btnAtualizar_Click(object sender, RoutedEventArgs e)
         {

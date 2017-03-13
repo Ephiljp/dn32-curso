@@ -71,7 +71,7 @@ namespace ControladorDePedidos.WPF
             }
 
             var produto = (Produto)lstProdutos.SelectedItem;
-            var formCadastroDeProduto = new FormCadastroDeProduto();
+            var formCadastroDeProduto = new FormCadastroDeProduto(produto);
             formCadastroDeProduto.ShowDialog();
             CarregueElementosDoBancoDeDados();
         }
@@ -91,6 +91,7 @@ namespace ControladorDePedidos.WPF
                 MessageBox.Show("Selecione um item");
                 return;
             }
+           
             var produto = (Produto)lstProdutos.SelectedItem;
             repositorio.Excluir(produto);
             CarregueElementosDoBancoDeDados();

@@ -40,7 +40,7 @@ namespace ControladorDePedidos.WPF
             repositorioProduto = new RepositorioProduto();
             InitializeComponent();
             this.DataContext = produto;
-
+            cmbMarcas.SelectedValue = produto.Marca.Codigo;
         }
 
 

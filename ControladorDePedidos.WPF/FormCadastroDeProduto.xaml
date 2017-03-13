@@ -42,7 +42,7 @@
         <TextBlock TextAlignment="Left" x:Name="textBlock_Copy5" HorizontalAlignment="Left" Margin="44,177,0,0" TextWrapping="Wrap" Text="Estoque Desejavel:" VerticalAlignment="Top" Width="100"/>
         <TextBox Text="{Binding QuantidadeMinimaEmEstoque}" x:Name="txtEstoqueMinimo"  HorizontalAlignment="Left" Height="23" Margin="149,199,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="177"/>
         <TextBlock TextAlignment="Left" x:Name="textBlock_Copy6" HorizontalAlignment="Left" Margin="53,205,0,0" TextWrapping="Wrap" Text="Estoque minimo:" VerticalAlignment="Top" Width="91"/>
-        <ComboBox x:Name="cmbMarcas" HorizontalAlignment="Left" Margin="149,65,0,0" VerticalAlignment="Top" Width="177" ItemsSource="{Binding}" DisplayMemberPath="nome"/>
+        <ComboBox x:Name="cmbMarcas" HorizontalAlignment="Left" Margin="149,62,0,0" VerticalAlignment="Top" Width="177" ItemsSource="{Binding}" SelectedValuePath="Codigo" DisplayMemberPath="nome"/>
 
     </Grid>
 </Window>
