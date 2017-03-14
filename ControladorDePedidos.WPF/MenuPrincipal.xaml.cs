@@ -43,5 +43,11 @@ namespace ControladorDePedidos.WPF
             janelaClientes.Show();
 
         }
+
+        private void btnCompras_Click(object sender, RoutedEventArgs e)
+        {
+            var janelaCompras = new FormCompras();
+            janelaCompras.Show();
+        }
     }
 }

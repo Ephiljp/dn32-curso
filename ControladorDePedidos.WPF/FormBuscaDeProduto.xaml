@@ -1,0 +1,57 @@
+﻿<Window x:Class="ControladorDePedidos.WPF.FormBuscaDeProduto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControladorDePedidos.WPF"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        xmlns:Controls="clr-namespace:dn32ImageButton.Controls;assembly=dn32Layout" 
+        Title="Cadastro de Produto" Height="303.611" Width="588.404"
+        ResizeMode="NoResize"
+       Loaded="Window_Loaded"
+        xmlns:app="clr-namespace:ControladorDePedidos.WPF"
+        
+        >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/dn32Layout;component/Themes/dn32ImageButton.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+
+            <app:ConversorDeEstoque x:Key="ConversorDeEstoque"/>
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="10,10,6,-1">
+        <TextBox KeyDown="txtCodigo_KeyDown"  x:Name="txtCodigo" IsReadOnly="False" Margin="106,17,258,0" TextWrapping="Wrap" Height="19" VerticalAlignment="Top"/>
+        <TextBlock TextAlignment="Right" x:Name="textBlock" HorizontalAlignment="Left" Margin="10,21,0,0" TextWrapping="Wrap" Text="Termo da Busca:" VerticalAlignment="Top" Width="91"/>
+        <ListView x:Name="lstProdutos" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,66,10,27" d:CopyToken="8f41ad8a-975f-48b3-96b7-175c062463d0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Código" Width="50" DisplayMemberBinding="{Binding Codigo}"/>
+                    <GridViewColumn Header="Nome" Width="180" DisplayMemberBinding="{Binding Nome}"/>
+                    <GridViewColumn Header="Marca" Width="90" DisplayMemberBinding="{Binding Marca.nome}"/>
+                    <GridViewColumn Header="Valor de Venda" Width="90" DisplayMemberBinding="{Binding ValorDeVenda}"/>
+                    <GridViewColumn Header="Valor de Compra" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
+                    <GridViewColumn Header="Estoque" Width="50">
+
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding QuantidadeEmEstoque}" Foreground="{Binding ., Converter={StaticResource ConversorDeEstoque}}"/>
+
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Controls:dn32ImageButton x:Name="btnAdicionar" 
+            Text="Adicionar"
+            Style="{DynamicResource dn32ButtonStyle}"
+            NormalImage="/ControladorDePedidos.WPF;component/img/adicionar.png" Margin="0,0,174,0" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" HorizontalAlignment="Right" Width="72" Height="61" VerticalAlignment="Top" />
+
+    </Grid>
+</Window>

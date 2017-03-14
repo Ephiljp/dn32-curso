@@ -68,7 +68,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="FormBuscaDeProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FormCadastroDeCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormCadastroDeCompra.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,6 +93,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FormClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormCompras.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,8 +120,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FormBuscaDeProduto.xaml.cs">
+      <DependentUpon>FormBuscaDeProduto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormCadastroDeCliente.xaml.cs">
       <DependentUpon>FormCadastroDeCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastroDeCompra.xaml.cs">
+      <DependentUpon>FormCadastroDeCompra.xaml</DependentUpon>
     </Compile>
     <Compile Include="formCadastroDeMarca.xaml.cs">
       <DependentUpon>formCadastroDeMarca.xaml</DependentUpon>
@@ -122,6 +140,9 @@
     </Compile>
     <Compile Include="FormClientes.xaml.cs">
       <DependentUpon>FormClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormCompras.xaml.cs">
+      <DependentUpon>FormCompras.xaml</DependentUpon>
     </Compile>
     <Compile Include="formMarcas.xaml.cs">
       <DependentUpon>formMarcas.xaml</DependentUpon>
@@ -177,6 +198,9 @@
       <Project>{06c70bfd-9e39-4349-99a8-398a02767ee5}</Project>
       <Name>ControladorDePedidos.Repositorio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\adicionar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
