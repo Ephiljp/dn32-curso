@@ -5,11 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControladorDePedidos.WPF"
         mc:Ignorable="d"
-        Title="Produtos" Height="283.406" Width="588.256" WindowStartupLocation="CenterScreen"
+        Title="Produtos" Height="283.406" Width="593.899" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
+        xmlns:app="clr-namespace:ControladorDePedidos.WPF"
+        
         >
     <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/dn32Layout;component/Themes/dn32ImageButton.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <app:ConversorDeEstoque x:Key="ConversorDeEstoque"/>
+            
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Controls:dn32ImageButton x:Name="btnNovo" 
@@ -46,8 +55,16 @@
                     <GridViewColumn Header="Marca" Width="90" DisplayMemberBinding="{Binding Marca.nome}"/>
                     <GridViewColumn Header="Valor de Venda" Width="90" DisplayMemberBinding="{Binding ValorDeVenda}"/>
                     <GridViewColumn Header="Valor de Compra" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
-                    <GridViewColumn Header="Estoque" Width="50" DisplayMemberBinding="{Binding QuantidadeEmEstoque}"/>
-                    
+                    <GridViewColumn Header="Estoque" Width="50">
+
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding QuantidadeEmEstoque}" Foreground="{Binding Path=., Converter={StaticResource ConversorDeEstoque}}"/>
+
+                            </DataTemplate>                            
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>
