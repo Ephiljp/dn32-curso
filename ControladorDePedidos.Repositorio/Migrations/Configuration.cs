@@ -10,7 +10,6 @@ namespace ControladorDePedidos.Repositorio.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ControladorDePedidos.Repositorio.Contexto";
         }
 
         protected override void Seed(ControladorDePedidos.Repositorio.Contexto context)

@@ -5,20 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControladorDePedidos.WPF"
         mc:Ignorable="d"
-        Title="Compras" Height="283.406" Width="593.899" WindowStartupLocation="CenterScreen"
+        Title="Compras" Height="255.065" Width="718.387" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
-        xmlns:app="clr-namespace:ControladorDePedidos.WPF"
+        
         
         >
     <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/dn32Layout;component/Themes/dn32ImageButton.xaml"></ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
 
-            <app:ConversorDeEstoque x:Key="ConversorDeEstoque"/>
+        <ResourceDictionary Source="/dn32Layout;component/Themes/dn32ImageButton.xaml"/>
 
-        </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Controls:dn32ImageButton x:Name="btnNovo" 
@@ -46,23 +41,36 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Código" Width="50" DisplayMemberBinding="{Binding Codigo}"/>
-                    <GridViewColumn Header="Nome" Width="180" DisplayMemberBinding="{Binding Nome}"/>
-                    <GridViewColumn Header="Marca" Width="90" DisplayMemberBinding="{Binding Marca.nome}"/>
-                    <GridViewColumn Header="Valor de Venda" Width="90" DisplayMemberBinding="{Binding ValorDeVenda}"/>
-                    <GridViewColumn Header="Valor de Compra" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
-                    <GridViewColumn Header="Estoque" Width="50">
-
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding QuantidadeEmEstoque}" Foreground="{Binding Path=., Converter={StaticResource ConversorDeEstoque}}"/>
-
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                    <GridViewColumn Header="Valor total" Width="90" DisplayMemberBinding="{Binding Marca.nome}"/>
+                    <GridViewColumn Header="Quantidade de produtos" Width="150" DisplayMemberBinding="{Binding ValorDeVenda}"/>
+                    <GridViewColumn Header="Data da cadastro" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
+                    <GridViewColumn Header="Data da compra" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
+                    <GridViewColumn Header="Data do recebimento" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
+                    <GridViewColumn Header="Status" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
 
                 </GridView>
             </ListView.View>
         </ListView>
+        <Controls:dn32ImageButton x:Name="btnComprar" 
+            Text="Efetivar compra"
+            Style="{DynamicResource dn32ButtonStyle}"
+            Height="61"
+            NormalImage="/dn32Layout;component/img/compras.png"
+            Margin="480,10,0,0" 
+            ImageSize="32" 
+            FontSize="12"
+            Padding="3" 
+            RenderTransformOrigin="0.477,0.541" Click="btnComprar_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
+        <Controls:dn32ImageButton x:Name="btnCompraRecebida" 
+            Text="Compra recebida"
+            Style="{DynamicResource dn32ButtonStyle}"
+            NormalImage="/dn32Layout;component/img/estoque.png"
+            Margin="585,10,0,0" 
+            Height="61"
+            ImageSize="32" 
+            FontSize="12"
+            Padding="3" 
+            RenderTransformOrigin="0.477,0.541" Click="btnCompraRecebida_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104"/>
 
 
 

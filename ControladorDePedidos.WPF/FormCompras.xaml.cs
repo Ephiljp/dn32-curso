@@ -16,16 +16,14 @@ using System.Windows.Shapes;
 
 namespace ControladorDePedidos.WPF
 {
-    /// <summary>
-    /// Interaction logic for FormCompras.xaml
-    /// </summary>
+
     public partial class FormCompras : Window
     {
-         RepositorioCompra repositorio;
+        RepositorioCompra repositorio;
 
         public FormCompras()
         {
-            
+
             repositorio = new RepositorioCompra();
             InitializeComponent();
 
@@ -44,7 +42,7 @@ namespace ControladorDePedidos.WPF
         }
 
 
-       
+
 
         private void btnMarcas_Click(object sender, RoutedEventArgs e)
         {
@@ -52,12 +50,14 @@ namespace ControladorDePedidos.WPF
             formarca.Show();
         }
 
-      
+
         private void btnNovo_Click(object sender, RoutedEventArgs e)
         {
             var formCadastroDeCompra = new FormCadastroDeCompra();
             formCadastroDeCompra.ShowDialog();
             CarregueElementosDoBancoDeDados();
+
+
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
@@ -74,7 +74,7 @@ namespace ControladorDePedidos.WPF
             CarregueElementosDoBancoDeDados();
         }
 
-       
+
 
         private void btnAtualziar_Click(object sender, RoutedEventArgs e)
         {
@@ -89,13 +89,21 @@ namespace ControladorDePedidos.WPF
                 MessageBox.Show("Selecione um item");
                 return;
             }
-           
+
             var compra = (Compra)lstCompras.SelectedItem;
             repositorio.Excluir(compra);
             CarregueElementosDoBancoDeDados();
 
         }
 
-       
+        private void btnComprar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCompraRecebida_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

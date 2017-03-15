@@ -12,5 +12,18 @@ namespace ControladorDePedidos.Model
         [Key]
 
         public int Codigo { get; set; }
+
+        public DateTime DataDeCadastro { get; set; }
+
+        public DateTime DataDaEfetivacao { get; set; }
+
+        public DateTime DataDoRecebimento { get; set; }
+
+        public int QuantidadeDeProdutos { get; set; }
+
+        public List<ItemDaCompra> ItensDaCompra { get; set; }
+
+        public eStatusDaCompra Status { get; set; }
+
     }
 }

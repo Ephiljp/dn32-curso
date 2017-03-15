@@ -50,17 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto.cs" />
-    <Compile Include="Migrations\201703132037149_InitialCreate.cs" />
-    <Compile Include="Migrations\201703132037149_InitialCreate.Designer.cs">
-      <DependentUpon>201703132037149_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703132050252_cadastro-de-clientes.cs" />
-    <Compile Include="Migrations\201703132050252_cadastro-de-clientes.Designer.cs">
-      <DependentUpon>201703132050252_cadastro-de-clientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703142017382_compras.cs" />
-    <Compile Include="Migrations\201703142017382_compras.Designer.cs">
-      <DependentUpon>201703142017382_compras.cs</DependentUpon>
+    <Compile Include="Migrations\201703151956053_Inicial.cs" />
+    <Compile Include="Migrations\201703151956053_Inicial.Designer.cs">
+      <DependentUpon>201703151956053_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,14 +73,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703132037149_InitialCreate.resx">
-      <DependentUpon>201703132037149_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703132050252_cadastro-de-clientes.resx">
-      <DependentUpon>201703132050252_cadastro-de-clientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703142017382_compras.resx">
-      <DependentUpon>201703142017382_compras.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703151956053_Inicial.resx">
+      <DependentUpon>201703151956053_Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

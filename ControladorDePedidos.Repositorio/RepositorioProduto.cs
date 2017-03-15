@@ -50,5 +50,12 @@ namespace ControladorDePedidos.Repositorio
             contexto.Set<Produto>().Remove(original);
             contexto.SaveChanges();
         }
+
+        public List<Produto> Buscar(string termoDaBusca )
+        {
+            contexto = new Contexto();
+            var lista = contexto.Set<Produto>().Where(x => x.Nome.Contains(termoDaBusca)).ToList();
+            return lista;
+        }
     }
 }

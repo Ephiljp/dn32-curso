@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControladorDePedidos.Repositorio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,19 +18,27 @@ namespace ControladorDePedidos.WPF
     
     public partial class FormBuscaDeProduto : Window
     {
+        RepositorioProduto repositorio;
         public FormBuscaDeProduto()
         {
             InitializeComponent();
+
+            repositorio = new RepositorioProduto();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            var listaTudo = repositorio.Liste();
 
+            lstProdutos.DataContext = listaTudo;
         }
 
-        private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
+        private void txtCodigo_KeyUP(object sender, KeyEventArgs e)
         {
+           var listaDeProdutos =  repositorio.Buscar(txtCodigo.Text);
 
+
+            lstProdutos.DataContext = listaDeProdutos;
         }
 
         private void btnAdicionar_Click(object sender, RoutedEventArgs e)

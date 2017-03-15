@@ -21,18 +21,43 @@ namespace ControladorDePedidos.WPF
     /// </summary>
     public partial class FormCadastroDeCompra : Window
     {
+
+        RepositorioCompra repositorio;
+
+        public int Codigo { get; set; }
+
         public FormCadastroDeCompra()
         {
             InitializeComponent();
-            this.DataContext = new Compra();
+
+            repositorio = new RepositorioCompra();
+
+            var compra = new Compra
+            {
+                DataDeCadastro = DateTime.Now,
+                Status = eStatusDaCompra.NOVA
+            };
+
+
+
+            repositorio.Adicione(compra);
+
+            Codigo = compra.Codigo;
+
+            this.DataContext = compra;
 
         }
 
 
         public FormCadastroDeCompra(Compra compra)
         {
+
             InitializeComponent();
+
+            repositorio = new RepositorioCompra();
+
             this.DataContext = compra;
+            Codigo = compra.Codigo;
         }
 
 
@@ -40,26 +65,18 @@ namespace ControladorDePedidos.WPF
         {
             var compra = (Compra)this.DataContext;
 
-            var repositorio = new RepositorioCompra();
+            compra.Codigo = Codigo;
 
-            if (compra.Codigo == 0)
-            {
+            repositorio.Atualize(compra);   //Atualizar no banco de dados!! 
 
 
-                repositorio.Adicione(compra);                //Cadastrar no banco de dados!!
-            }
-            else
-            {
-                //Editando
-                repositorio.Atualize(compra);   //Atualizar no banco de dados!! 
-
-            }
             this.Close();
 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
 
         }
 
@@ -83,5 +100,7 @@ namespace ControladorDePedidos.WPF
             var formulario = new FormBuscaDeProduto();
             formulario.ShowDialog();
         }
+
+
     }
 }

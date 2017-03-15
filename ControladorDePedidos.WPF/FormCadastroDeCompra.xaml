@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         xmlns:Controls="clr-namespace:dn32ImageButton.Controls;assembly=dn32Layout" 
-        Title="Cadastro de Compra" Height="321.532" Width="624.908"
-        ResizeMode="NoResize"
+        Title="Cadastro de Compra" Height="321.532" Width="852.83"
+        
        Loaded="Window_Loaded"
         
         >
@@ -17,9 +17,7 @@
     </Window.Resources>
 
     <Grid Margin="10,0,6,-1" Height="284" VerticalAlignment="Bottom">
-        <TextBox Text="{Binding Codigo}" x:Name="txtCodigo" IsReadOnly="True" Height="23" Margin="57,4,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="88"/>
-        <TextBlock TextAlignment="Right" x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Código:" VerticalAlignment="Top" Width="42"/>
-        <ListView x:Name="lstProdutos" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,63,10,10">
+        <ListView x:Name="lstProdutos" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,0,10,10" Height="211" VerticalAlignment="Bottom">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Código" Width="50" DisplayMemberBinding="{Binding Codigo}"/>
@@ -36,32 +34,30 @@
             Text="Obter recomendação"
             Style="{DynamicResource dn32ButtonStyle}"
             NormalImage="/dn32Layout;component/img/atualizar.png"
-            HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="132" Margin="179,0,0,0" ImageSize="32" FontSize="12" Padding="3" Click="btnObterRecomendacao_Click"/>
+            HorizontalAlignment="Left" Width="132" Margin="12,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnObterRecomendacao_Click"/>
         <Controls:dn32ImageButton x:Name="btnEditar" 
             Text="Editar"
             Style="{DynamicResource dn32ButtonStyle}"
             NormalImage="/dn32Layout;component/img/editar.png"
-            HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="65" Margin="386,0,0,0" ImageSize="32" FontSize="12" Padding="3" Click="btnEditar_Click" />
+            HorizontalAlignment="Left" Width="65" Margin="219,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnEditar_Click" />
         <Controls:dn32ImageButton x:Name="btnExcluir" 
             Text="Deletar"
             Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/dn32Layout;component/img/excluir.png"
-            HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="65" Margin="456,0,0,0" ImageSize="32" FontSize="12" Padding="3" Click="btnExcluir_Click"/>
+            NormalImage="/dn32Layout;component/img/excluir.png" Margin="289,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnExcluir_Click" HorizontalAlignment="Left" Width="65"/>
         <Controls:dn32ImageButton x:Name="btnAdicionar" 
             Text="Adicionar"
             Style="{DynamicResource dn32ButtonStyle}"
             NormalImage="/ControladorDePedidos.WPF;component/img/adicionar.png"
-            HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="65" Margin="316,0,0,0" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" />
+            HorizontalAlignment="Left" Width="65" Margin="149,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" />
         <Controls:dn32ImageButton x:Name="btnSalvar" 
             Text="Salvar"
             Style="{DynamicResource dn32ButtonStyle}"
             NormalImage="/dn32Layout;component/img/salvar.png"
-            HorizontalAlignment="Left" Width="65"  Height="61"
-            Margin="526,0,0,223" 
+            Margin="359,0,0,223" 
             ImageSize="32" 
             FontSize="12"
             Padding="3" 
-            RenderTransformOrigin="0.477,0.541" Click="btnSalvar_Click"/>
+            RenderTransformOrigin="0.477,0.541" Click="btnSalvar_Click" HorizontalAlignment="Left" Width="65"/>
 
     </Grid>
 </Window>

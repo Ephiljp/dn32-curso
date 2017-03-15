@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         xmlns:Controls="clr-namespace:dn32ImageButton.Controls;assembly=dn32Layout" 
-        Title="Cadastro de Produto" Height="303.611" Width="588.404"
-        ResizeMode="NoResize"
+        Title="Cadastro de Produto" Height="303.611" Width="654.903"
+       
        Loaded="Window_Loaded"
         xmlns:app="clr-namespace:ControladorDePedidos.WPF"
         
@@ -25,7 +25,7 @@
     </Window.Resources>
 
     <Grid Margin="10,10,6,-1">
-        <TextBox KeyDown="txtCodigo_KeyDown"  x:Name="txtCodigo" IsReadOnly="False" Margin="106,17,258,0" TextWrapping="Wrap" Height="19" VerticalAlignment="Top"/>
+        <TextBox KeyUp="txtCodigo_KeyUP"  x:Name="txtCodigo" IsReadOnly="False" Margin="106,17,258,0" TextWrapping="Wrap" Height="19" VerticalAlignment="Top"/>
         <TextBlock TextAlignment="Right" x:Name="textBlock" HorizontalAlignment="Left" Margin="10,21,0,0" TextWrapping="Wrap" Text="Termo da Busca:" VerticalAlignment="Top" Width="91"/>
         <ListView x:Name="lstProdutos" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,66,10,27" d:CopyToken="8f41ad8a-975f-48b3-96b7-175c062463d0">
             <ListView.View>
