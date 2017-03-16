@@ -40,13 +40,13 @@
         <ListView x:Name="lstCompras" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,76,10,10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Código" Width="50" DisplayMemberBinding="{Binding Codigo}"/>
-                    <GridViewColumn Header="Valor total" Width="90" DisplayMemberBinding="{Binding Marca.nome}"/>
-                    <GridViewColumn Header="Quantidade de produtos" Width="150" DisplayMemberBinding="{Binding ValorDeVenda}"/>
-                    <GridViewColumn Header="Data da cadastro" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
-                    <GridViewColumn Header="Data da compra" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
-                    <GridViewColumn Header="Data do recebimento" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
-                    <GridViewColumn Header="Status" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
+                   
+                    <GridViewColumn Header="Valor total" Width="90" DisplayMemberBinding="{Binding ValorTotal, ConverterCulture=pt-BR, StringFormat = C }"/>
+                    <GridViewColumn Header="Quantidade de produtos" Width="150" DisplayMemberBinding="{Binding QuantidadeDeProdutos}"/>
+                    <GridViewColumn Header="Data da cadastro" Width="95" DisplayMemberBinding="{Binding Path=DataDeCadastro, StringFormat='dd/MM/yyy'}"/>
+                    <GridViewColumn Header="Data da compra" Width="95" DisplayMemberBinding="{Binding Path=DataDaEfetivacao, StringFormat='dd/MM/yyy'}"/>
+                    <GridViewColumn Header="Data do recebimento" Width="125" DisplayMemberBinding="{Binding Path=DataDoRecebimento, StringFormat='dd/MM/yyy'}"/>
+                    <GridViewColumn Header="Status" Width="95" DisplayMemberBinding="{Binding Status}"/>
 
                 </GridView>
             </ListView.View>

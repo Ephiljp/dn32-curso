@@ -25,17 +25,17 @@
     </Window.Resources>
 
     <Grid Margin="10,10,6,-1">
-        <TextBox KeyUp="txtCodigo_KeyUP"  x:Name="txtCodigo" IsReadOnly="False" Margin="106,17,258,0" TextWrapping="Wrap" Height="19" VerticalAlignment="Top"/>
+        <TextBox KeyUp="txtCodigo_KeyUP"  x:Name="txtCodigo" IsReadOnly="False" Margin="106,17,304,0" TextWrapping="Wrap" Height="19" VerticalAlignment="Top"/>
         <TextBlock TextAlignment="Right" x:Name="textBlock" HorizontalAlignment="Left" Margin="10,21,0,0" TextWrapping="Wrap" Text="Termo da Busca:" VerticalAlignment="Top" Width="91"/>
         <ListView x:Name="lstProdutos" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,66,10,27" d:CopyToken="8f41ad8a-975f-48b3-96b7-175c062463d0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Código" Width="50" DisplayMemberBinding="{Binding Codigo}"/>
+                    
                     <GridViewColumn Header="Nome" Width="180" DisplayMemberBinding="{Binding Nome}"/>
                     <GridViewColumn Header="Marca" Width="90" DisplayMemberBinding="{Binding Marca.nome}"/>
                     <GridViewColumn Header="Valor de Venda" Width="90" DisplayMemberBinding="{Binding ValorDeVenda}"/>
                     <GridViewColumn Header="Valor de Compra" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
-                    <GridViewColumn Header="Estoque" Width="50">
+                    <GridViewColumn Header="Estoque" Width="80">
 
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -51,7 +51,9 @@
         <Controls:dn32ImageButton x:Name="btnAdicionar" 
             Text="Adicionar"
             Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/ControladorDePedidos.WPF;component/img/adicionar.png" Margin="0,0,174,0" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" HorizontalAlignment="Right" Width="72" Height="61" VerticalAlignment="Top" />
+            NormalImage="/ControladorDePedidos.WPF;component/img/adicionar.png" Margin="0,0,10,0" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" HorizontalAlignment="Right" Width="72" Height="61" VerticalAlignment="Top" />
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="357,20,0,0" TextWrapping="Wrap" Text="Quantidade:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtQuantidade" HorizontalAlignment="Left" Height="23" Margin="426,17,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="39" RenderTransformOrigin="0.472,0.459" TextAlignment="Right"/>
 
     </Grid>
 </Window>

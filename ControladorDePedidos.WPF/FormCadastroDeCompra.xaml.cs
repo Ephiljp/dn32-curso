@@ -23,6 +23,7 @@ namespace ControladorDePedidos.WPF
     {
 
         RepositorioCompra repositorio;
+        RepositorioItemDaCompra repositorioItemDaCompra;
 
         public int Codigo { get; set; }
 
@@ -31,6 +32,7 @@ namespace ControladorDePedidos.WPF
             InitializeComponent();
 
             repositorio = new RepositorioCompra();
+            repositorioItemDaCompra = new RepositorioItemDaCompra();
 
             var compra = new Compra
             {
@@ -42,9 +44,11 @@ namespace ControladorDePedidos.WPF
 
             repositorio.Adicione(compra);
 
+            lstProdutos.DataContext = compra.ItensDaCompra;
+
             Codigo = compra.Codigo;
 
-            this.DataContext = compra;
+            
 
         }
 
@@ -56,7 +60,7 @@ namespace ControladorDePedidos.WPF
 
             repositorio = new RepositorioCompra();
 
-            this.DataContext = compra;
+            lstProdutos.DataContext = compra.ItensDaCompra;
             Codigo = compra.Codigo;
         }
 
@@ -97,8 +101,24 @@ namespace ControladorDePedidos.WPF
 
         private void btnAdicionar_Click(object sender, RoutedEventArgs e)
         {
+            repositorioItemDaCompra = new RepositorioItemDaCompra();
             var formulario = new FormBuscaDeProduto();
             formulario.ShowDialog();
+
+            if (formulario.produtoSelecionado != null)
+            {
+                var itemDaCompra = new ItemDaCompra
+                {
+                    Compra = new Compra { Codigo = this.Codigo},
+                    Produto = formulario.produtoSelecionado,
+                    Quantidade = formulario.Quantidade,
+                    Valor = formulario.produtoSelecionado.ValorDeCompra
+
+                };
+                repositorioItemDaCompra.Adicione(itemDaCompra);  //Adicionar os produtos no banco de dados 
+
+                lstProdutos.DataContext = repositorioItemDaCompra.Liste(Codigo);                                                //recarregar a lista de produtos na tela
+            }
         }
 
 
