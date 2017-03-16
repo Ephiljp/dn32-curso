@@ -105,5 +105,19 @@ namespace ControladorDePedidos.WPF
         {
 
         }
+
+        private void btnRelatorioDeCompra_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstCompras.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um item");
+                return;
+            }
+
+            var compra = (Compra)lstCompras.SelectedItem;
+            var formRelatorioDeCompra = new FormRelatorioCompra(compra);
+            formRelatorioDeCompra.ShowDialog();
+
+        }
     }
 }

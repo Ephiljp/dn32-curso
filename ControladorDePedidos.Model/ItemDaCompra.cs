@@ -40,7 +40,23 @@ namespace ControladorDePedidos.Model
             }
                 
                 }
+        [NotMapped]
 
+        public string Nome {
+            get
+            {
+                return Produto.Nome;
+            }
+        }
 
+        [NotMapped]
+
+        public DateTime DataDeCadastro
+        {
+            get
+            {
+                return Compra.DataDeCadastro;
+            }
+        }
     }
 }
