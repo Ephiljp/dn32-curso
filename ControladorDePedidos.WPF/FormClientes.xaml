@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ControladorDePedidos.WPF"
         mc:Ignorable="d"
         Loaded="Window_Loaded" 
-        Title="Clientes" Height="283.406" Width="564.159" WindowStartupLocation="CenterScreen">
+        Title="Clientes" Height="283.406" Width="593.001" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <ResourceDictionary Source="/dn32Layout;component/Themes/dn32ImageButton.xaml"></ResourceDictionary>

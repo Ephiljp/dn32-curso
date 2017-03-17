@@ -23,10 +23,10 @@
                     
                     <GridViewColumn Header="Nome" Width="150" DisplayMemberBinding="{Binding Produto.Nome}"/>
                     <GridViewColumn Header="Marca" Width="90" DisplayMemberBinding="{Binding Produto.Marca.nome}"/>
-                    <GridViewColumn Header="Valor de Venda" Width="90" DisplayMemberBinding="{Binding Produto.ValorDeVenda}"/>
-                    <GridViewColumn Header="Valor de Compra" Width="100" DisplayMemberBinding="{Binding Valor}"/>
-                    <GridViewColumn Header="Quantidade" Width="95" DisplayMemberBinding="{Binding Quantidade}"/>
-                    <GridViewColumn Header="Valor total" Width="90" DisplayMemberBinding="{Binding ValorTotal}"/>
+                    <GridViewColumn Header="Valor de Venda" Width="90" DisplayMemberBinding="{Binding Produto.ValorDeVenda, ConverterCulture=pt-BR, StringFormat = C}"/>
+                    <GridViewColumn Header="Valor de Compra" Width="100" DisplayMemberBinding="{Binding Valor, ConverterCulture=pt-BR, StringFormat = C}"/>
+                    <GridViewColumn Header="Quantidade para compra" Width="95" DisplayMemberBinding="{Binding Quantidade}"/>
+                    <GridViewColumn Header="Valor total" Width="90" DisplayMemberBinding="{Binding ValorTotal, ConverterCulture=pt-BR, StringFormat = C}"/>
                     <GridViewColumn Header="Estoque Futuro" Width="95" DisplayMemberBinding="{Binding QuantidadeFinalEmEstoque}"/>
 
                 </GridView>
@@ -37,29 +37,15 @@
             Style="{DynamicResource dn32ButtonStyle}"
             NormalImage="/dn32Layout;component/img/atualizar.png"
             HorizontalAlignment="Left" Width="132" Margin="12,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnObterRecomendacao_Click"/>
-        <Controls:dn32ImageButton x:Name="btnEditar" 
-            Text="Editar"
-            Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/dn32Layout;component/img/editar.png"
-            HorizontalAlignment="Left" Width="65" Margin="219,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnEditar_Click" />
         <Controls:dn32ImageButton x:Name="btnExcluir" 
             Text="Deletar"
             Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/dn32Layout;component/img/excluir.png" Margin="289,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnExcluir_Click" HorizontalAlignment="Left" Width="65"/>
+            NormalImage="/dn32Layout;component/img/excluir.png" Margin="219,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnExcluir_Click" HorizontalAlignment="Left" Width="65"/>
         <Controls:dn32ImageButton x:Name="btnAdicionar" 
             Text="Adicionar"
             Style="{DynamicResource dn32ButtonStyle}"
             NormalImage="/ControladorDePedidos.WPF;component/img/adicionar.png"
             HorizontalAlignment="Left" Width="65" Margin="149,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" />
-        <Controls:dn32ImageButton x:Name="btnSalvar" 
-            Text="Salvar"
-            Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/dn32Layout;component/img/salvar.png"
-            Margin="359,0,0,223" 
-            ImageSize="32" 
-            FontSize="12"
-            Padding="3" 
-            RenderTransformOrigin="0.477,0.541" Click="btnSalvar_Click" HorizontalAlignment="Left" Width="65"/>
 
     </Grid>
 </Window>

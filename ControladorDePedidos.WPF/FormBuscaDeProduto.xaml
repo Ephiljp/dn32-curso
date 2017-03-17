@@ -30,16 +30,16 @@
         <ListView x:Name="lstProdutos" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,66,10,27" d:CopyToken="8f41ad8a-975f-48b3-96b7-175c062463d0">
             <ListView.View>
                 <GridView>
-                    
+
                     <GridViewColumn Header="Nome" Width="180" DisplayMemberBinding="{Binding Nome}"/>
                     <GridViewColumn Header="Marca" Width="90" DisplayMemberBinding="{Binding Marca.nome}"/>
-                    <GridViewColumn Header="Valor de Venda" Width="90" DisplayMemberBinding="{Binding ValorDeVenda}"/>
-                    <GridViewColumn Header="Valor de Compra" Width="95" DisplayMemberBinding="{Binding ValorDeCompra}"/>
+                    <GridViewColumn Header="Valor de Venda" Width="90" DisplayMemberBinding="{Binding ValorDeVenda, ConverterCulture=pt-BR, StringFormat = C}"/>
+                    <GridViewColumn Header="Valor de Compra" Width="95" DisplayMemberBinding="{Binding ValorDeCompra, ConverterCulture=pt-BR, StringFormat = C}"/>
                     <GridViewColumn Header="Estoque" Width="80">
 
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding QuantidadeEmEstoque}" Foreground="{Binding ., Converter={StaticResource ConversorDeEstoque}}"/>
+                                <TextBlock Text="{Binding QuantidadeEmEstoque}" Foreground="{Binding ., Converter={StaticResource ConversorDeEstoque}}" />
 
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -52,8 +52,8 @@
             Text="Adicionar"
             Style="{DynamicResource dn32ButtonStyle}"
             NormalImage="/ControladorDePedidos.WPF;component/img/adicionar.png" Margin="0,0,10,0" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" HorizontalAlignment="Right" Width="72" Height="61" VerticalAlignment="Top" />
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="357,20,0,0" TextWrapping="Wrap" Text="Quantidade:" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtQuantidade" HorizontalAlignment="Left" Height="23" Margin="426,17,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="39" RenderTransformOrigin="0.472,0.459" TextAlignment="Right"/>
+        <TextBlock x:Name="textBlock1" Margin="0,20,209,0" TextWrapping="Wrap" Text="Quantidade:" VerticalAlignment="Top" HorizontalAlignment="Right" Width="65"/>
+        <TextBox x:Name="txtQuantidade" HorizontalAlignment="Right" Margin="0,17,166,0" TextWrapping="Wrap" Text="1" Width="39" RenderTransformOrigin="0.472,0.459" TextAlignment="Right" Height="23" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

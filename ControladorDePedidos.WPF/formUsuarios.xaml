@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControladorDePedidos.WPF"
         mc:Ignorable="d"
-        Title="Usuários" Height="275.46" Width="602.338" WindowStartupLocation="CenterScreen"
+        Title="Usuários" Height="275.46" Width="619.402" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
         >
 

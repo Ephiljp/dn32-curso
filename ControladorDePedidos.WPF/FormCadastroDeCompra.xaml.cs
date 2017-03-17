@@ -24,6 +24,7 @@ namespace ControladorDePedidos.WPF
 
         RepositorioCompra repositorio;
         RepositorioItemDaCompra repositorioItemDaCompra;
+        RepositorioProduto repositorioProduto;
 
         public int Codigo { get; set; }
 
@@ -31,53 +32,35 @@ namespace ControladorDePedidos.WPF
         {
             InitializeComponent();
 
-            repositorio = new RepositorioCompra();
-            repositorioItemDaCompra = new RepositorioItemDaCompra();
+            Inicializeoperacoes();
 
             var compra = new Compra
             {
                 DataDeCadastro = DateTime.Now,
                 Status = eStatusDaCompra.NOVA
             };
-
-
-
+            
             repositorio.Adicione(compra);
 
             lstProdutos.DataContext = compra.ItensDaCompra;
 
             Codigo = compra.Codigo;
-
             
-
         }
-
-
+        
         public FormCadastroDeCompra(Compra compra)
         {
 
             InitializeComponent();
+            Inicializeoperacoes();
 
-            repositorio = new RepositorioCompra();
 
             lstProdutos.DataContext = compra.ItensDaCompra;
             Codigo = compra.Codigo;
         }
 
 
-        private void btnSalvar_Click(object sender, RoutedEventArgs e)
-        {
-            var compra = (Compra)this.DataContext;
-
-            compra.Codigo = Codigo;
-
-            repositorio.Atualize(compra);   //Atualizar no banco de dados!! 
-
-
-            this.Close();
-
-        }
-
+       
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -86,7 +69,24 @@ namespace ControladorDePedidos.WPF
 
         private void btnObterRecomendacao_Click(object sender, RoutedEventArgs e)
         {
+            var listaEstoqueBaixo =  repositorioProduto.ObetnhaProdutosComEstoqueBaixo();
 
+            foreach (var produto in listaEstoqueBaixo)
+            {
+                var itemDaCompra = new ItemDaCompra
+                {
+                    Compra = new Compra { Codigo = this.Codigo },
+                    Produto = produto,
+                    Quantidade = produto.QuantidadeDesejavelEmEstoque - produto.QuantidadeEmEstoque,
+                    Valor = produto.ValorDeCompra
+
+                };
+                repositorioItemDaCompra.Adicione(itemDaCompra);  
+            }
+
+            lstProdutos.DataContext = repositorioItemDaCompra.Liste(Codigo);                                           
+
+            
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
@@ -96,6 +96,15 @@ namespace ControladorDePedidos.WPF
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
+            if (lstProdutos.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um item");
+                return;
+            }
+
+            var itemDaCompra = (ItemDaCompra)lstProdutos.SelectedItem;
+            repositorioItemDaCompra.Excluir(itemDaCompra);
+            lstProdutos.DataContext = repositorioItemDaCompra.Liste(Codigo);                                              
 
         }
 
@@ -121,6 +130,11 @@ namespace ControladorDePedidos.WPF
             }
         }
 
-
+        private void Inicializeoperacoes()
+        {
+            repositorio = new RepositorioCompra();
+            repositorioItemDaCompra = new RepositorioItemDaCompra();
+            repositorioProduto = new RepositorioProduto();
+        }
     }
 }

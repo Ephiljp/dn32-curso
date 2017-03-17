@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ControladorDePedidos.WPF"
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         mc:Ignorable="d"
-        Title="Relatorio Compra" Height="410.08" Width="1101.682">
+        Title="Relatorio Compra" Height="455.08" Width="1101.682">
     <Grid>
         <WindowsFormsHost>
             <rv:ReportViewer x:Name="ReportViewer"/>

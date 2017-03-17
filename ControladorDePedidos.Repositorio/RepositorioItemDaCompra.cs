@@ -23,11 +23,10 @@ namespace ControladorDePedidos.Repositorio
 
             var produtoOriginal = contexto.Set<Produto>().Find(itemDaCompra.Produto.Codigo);
             itemDaCompra.Produto = produtoOriginal;
-
-
-           
+                       
             contexto.Set<ItemDaCompra>().Add(itemDaCompra);
             contexto.SaveChanges();
+
         }
         public void Atualize(ItemDaCompra itemDaCompra)
         {

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ControladorDePedidos.WPF"
         mc:Ignorable="d"
         Loaded="Window_Loaded" 
-        Title="Marcas" Height="283.406" Width="467.256" WindowStartupLocation="CenterScreen">
+        Title="Marcas" Height="283.406" Width="484.185" WindowStartupLocation="CenterScreen">
     
     <Window.Resources>
         <ResourceDictionary Source="/dn32Layout;component/Themes/dn32ImageButton.xaml"></ResourceDictionary>

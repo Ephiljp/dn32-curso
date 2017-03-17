@@ -90,6 +90,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Conversores\ConversorDeData.cs" />
+    <Compile Include="Conversores\ConversorDeEstoque.cs" />
     <Compile Include="FormRelatorioCompra.xaml.cs">
       <DependentUpon>FormRelatorioCompra.xaml</DependentUpon>
     </Compile>
@@ -238,6 +240,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\print.png" />
+    <Resource Include="img\filtrar.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

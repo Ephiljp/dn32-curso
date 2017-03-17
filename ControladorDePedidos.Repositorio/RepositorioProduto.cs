@@ -57,5 +57,13 @@ namespace ControladorDePedidos.Repositorio
             var lista = contexto.Set<Produto>().Where(x => x.Nome.Contains(termoDaBusca)).ToList();
             return lista;
         }
+
+        public List<Produto> ObetnhaProdutosComEstoqueBaixo()
+        {
+            contexto = new Contexto();
+
+            var lista = contexto.Set<Produto>().Where(x => x.QuantidadeEmEstoque < x.QuantidadeDesejavelEmEstoque  ).ToList();
+            return lista;
+        }
     }
 }
