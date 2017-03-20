@@ -3,6 +3,8 @@ using ControladorDePedidos.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static ControladorDePedidos.WPF.Utilitarios;
 
 namespace ControladorDePedidos.WPF
 {
@@ -68,7 +71,7 @@ namespace ControladorDePedidos.WPF
                 return;
             }
             var compra = (Compra)lstCompras.SelectedItem;
-                        
+
             var formCadastroDeCompra = new FormCadastroDeCompra(compra);
             formCadastroDeCompra.ShowDialog();
             CarregueElementosDoBancoDeDados();
@@ -134,7 +137,7 @@ namespace ControladorDePedidos.WPF
 
             //2
 
-            //Todo enviar email
+            EnviarEmail("felipe@gero.com.br","Teste de Software Dn32", "Mensagem de teste");
 
             //3
             compra.Status = eStatusDaCompra.EFETIVADA;
@@ -147,6 +150,7 @@ namespace ControladorDePedidos.WPF
 
         }
 
+
         private static List<ItemDaCompra> ObterItendaCompra(Compra compra)
         {
             var repositorioItemdaCompra = new RepositorioItemDaCompra();
@@ -158,7 +162,7 @@ namespace ControladorDePedidos.WPF
         {
             //Adicionar no estoque e 
             var compra = (Compra)lstCompras.SelectedItem;
-            
+
             if (lstCompras.SelectedItem == null)
             {
                 MessageBox.Show("Selecione um item");
@@ -177,7 +181,7 @@ namespace ControladorDePedidos.WPF
             foreach (var item in itenDaCompra)
             {
                 var produtoDaCompra = item.Produto;
-                 var produtoDoBanco = repositorioDeProduto.Buscar(produtoDaCompra.Codigo);
+                var produtoDoBanco = repositorioDeProduto.Buscar(produtoDaCompra.Codigo);
                 produtoDoBanco.QuantidadeEmEstoque += item.Quantidade;
                 repositorioDeProduto.Atualize(produtoDoBanco);
             }
@@ -189,11 +193,11 @@ namespace ControladorDePedidos.WPF
             repositorio.Atualize(compra);
             CarregueElementosDoBancoDeDados();
 
-            
 
-           
-            
-                
+
+
+
+
 
         }
 

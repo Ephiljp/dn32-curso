@@ -9,7 +9,7 @@ namespace ControladorDePedidos.Repositorio
 {
     public class RepositorioItemDaCompra : RepositorioGenerico <ItemDaCompra>
     {
-        Contexto contexto;
+        
 
         public RepositorioItemDaCompra()
         {

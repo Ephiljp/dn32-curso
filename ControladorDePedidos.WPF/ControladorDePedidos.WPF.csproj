@@ -105,6 +105,7 @@
       <DependentUpon>FormRelatorioCompra.xaml</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utilitarios.cs" />
     <Page Include="FormBuscaDeProduto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
