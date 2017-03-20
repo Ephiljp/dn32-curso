@@ -15,6 +15,8 @@ namespace ControladorDePedidos.Model
 
         public virtual Marca Marca { get; set; }
 
+        public virtual Fornecedor Fornecedor { get; set; }
+
         public decimal ValorDeCompra { get; set; }
 
         public decimal ValorDeVenda { get; set; }

@@ -25,5 +25,7 @@ namespace ControladorDePedidos.Model
 
         public bool Compras { get; set; }
 
+        public string Senha { get; set; }
+
     }
 }

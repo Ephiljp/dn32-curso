@@ -92,8 +92,14 @@
     </ApplicationDefinition>
     <Compile Include="Conversores\ConversorDeData.cs" />
     <Compile Include="Conversores\ConversorDeEstoque.cs" />
+    <Compile Include="FormCadastroDeFornecedor.xaml.cs">
+      <DependentUpon>FormCadastroDeFornecedor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormCadastroDeVenda.xaml.cs">
       <DependentUpon>FormCadastroDeVenda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormFornecedores.xaml.cs">
+      <DependentUpon>FormFornecedores.xaml</DependentUpon>
     </Compile>
     <Compile Include="FormRelatorioVenda.xaml.cs">
       <DependentUpon>FormRelatorioVenda.xaml</DependentUpon>
@@ -104,6 +110,9 @@
     <Compile Include="FormRelatorioCompra.xaml.cs">
       <DependentUpon>FormRelatorioCompra.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utilitarios.cs" />
     <Page Include="FormBuscaDeProduto.xaml">
@@ -113,6 +122,10 @@
     <Page Include="FormCadastroDeCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormCadastroDeFornecedor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="FormCadastroDeVenda.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -138,6 +151,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FormFornecedores.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="FormRelatorioVenda.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -161,6 +178,10 @@
     <Page Include="formUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MenuPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -71,6 +71,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="eStatusDaVenda .cs" />
     <Compile Include="ItemDaVenda.cs" />
+    <Compile Include="Fornecedor.cs" />
     <Compile Include="Venda.cs" />
     <Compile Include="Compra.cs" />
     <Compile Include="eStatusDaCompra.cs" />

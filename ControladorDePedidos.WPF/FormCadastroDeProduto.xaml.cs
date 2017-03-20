@@ -1,18 +1,6 @@
 ﻿using ControladorDePedidos.Model;
 using ControladorDePedidos.Repositorio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ControladorDePedidos.WPF
 {
@@ -22,12 +10,16 @@ namespace ControladorDePedidos.WPF
     public partial class FormCadastroDeProduto : Window
     {
         RepositorioMarca repositorioMarca;
+        RepositorioFornecedor repositorioFornecedor;
 
         RepositorioProduto repositorioProduto;
+
+
 
         public FormCadastroDeProduto()
         {
             repositorioMarca = new RepositorioMarca();
+            repositorioFornecedor = new RepositorioFornecedor();
             repositorioProduto = new RepositorioProduto();
             InitializeComponent();
             this.DataContext = new Produto();
@@ -37,10 +29,12 @@ namespace ControladorDePedidos.WPF
         public FormCadastroDeProduto(Produto produto)
         {
             repositorioMarca = new RepositorioMarca();
+            repositorioFornecedor = new RepositorioFornecedor();
             repositorioProduto = new RepositorioProduto();
             InitializeComponent();
             this.DataContext = produto;
             cmbMarcas.SelectedValue = produto.Marca.Codigo;
+            cmbFornecedor.SelectedValue = produto.Fornecedor.Codigo;
         }
 
 
@@ -48,8 +42,10 @@ namespace ControladorDePedidos.WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var marcas = repositorioMarca.Liste();
+            var fornecedores = repositorioFornecedor.Liste();
 
             cmbMarcas.DataContext = marcas;
+            cmbFornecedor.DataContext = fornecedores;
 
             
 
@@ -65,6 +61,15 @@ namespace ControladorDePedidos.WPF
             else
             {
                 produto.Marca = (Marca)cmbMarcas.SelectedItem;
+            }
+
+            if (cmbFornecedor.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione uma fornecedor");
+            }
+            else
+            {
+                produto.Fornecedor = (Fornecedor)cmbFornecedor.SelectedItem;
             }
 
             if (produto.Codigo == 0 )

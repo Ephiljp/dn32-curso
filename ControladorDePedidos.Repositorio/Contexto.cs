@@ -39,6 +39,8 @@ namespace ControladorDePedidos.Repositorio
 
         public DbSet<ItemDaVenda> ItemDaVenda { get; set; }
 
+        public DbSet<Fornecedor> Fornecedor { get; set; }
+
 
 
 

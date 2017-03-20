@@ -88,6 +88,14 @@
     <Compile Include="Migrations\201703172155256_Venda.Designer.cs">
       <DependentUpon>201703172155256_Venda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703202118240_fornecedor.cs" />
+    <Compile Include="Migrations\201703202118240_fornecedor.Designer.cs">
+      <DependentUpon>201703202118240_fornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703202207383_senha.cs" />
+    <Compile Include="Migrations\201703202207383_senha.Designer.cs">
+      <DependentUpon>201703202207383_senha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioCliente.cs" />
@@ -95,6 +103,7 @@
     <Compile Include="RepositorioGenerico.cs" />
     <Compile Include="RepositorioItemDaVenda.cs" />
     <Compile Include="RepositorioItemDaCompra.cs" />
+    <Compile Include="RepositorioFornecedor.cs" />
     <Compile Include="RepositorioVenda.cs" />
     <Compile Include="RepositorioUsuario.cs" />
     <Compile Include="RepositorioProduto.cs" />
@@ -126,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703172155256_Venda.resx">
       <DependentUpon>201703172155256_Venda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703202118240_fornecedor.resx">
+      <DependentUpon>201703202118240_fornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703202207383_senha.resx">
+      <DependentUpon>201703202207383_senha.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
