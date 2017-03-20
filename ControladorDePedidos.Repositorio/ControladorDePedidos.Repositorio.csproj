@@ -84,11 +84,18 @@
     <Compile Include="Migrations\201703160013220_Compra02.Designer.cs">
       <DependentUpon>201703160013220_Compra02.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703172155256_Venda.cs" />
+    <Compile Include="Migrations\201703172155256_Venda.Designer.cs">
+      <DependentUpon>201703172155256_Venda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioCliente.cs" />
-    <Compile Include="RepositorioItemDaCompra.cs" />
     <Compile Include="RepositorioCompra.cs" />
+    <Compile Include="RepositorioGenerico.cs" />
+    <Compile Include="RepositorioItemDaVenda.cs" />
+    <Compile Include="RepositorioItemDaCompra.cs" />
+    <Compile Include="RepositorioVenda.cs" />
     <Compile Include="RepositorioUsuario.cs" />
     <Compile Include="RepositorioProduto.cs" />
     <Compile Include="RepositorioMarca.cs" />
@@ -116,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703160013220_Compra02.resx">
       <DependentUpon>201703160013220_Compra02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703172155256_Venda.resx">
+      <DependentUpon>201703172155256_Venda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace ControladorDePedidos.WPF
 {
 
-    public partial class FormCompras : Window
+    public partial class FormVendas : Window
     {
-        RepositorioCompra repositorio;
+        RepositorioVenda repositorio;
 
-        public FormCompras()
+        public FormVendas()
         {
 
-            repositorio = new RepositorioCompra();
+            repositorio = new RepositorioVenda();
             InitializeComponent();
 
         }
@@ -37,7 +37,8 @@ namespace ControladorDePedidos.WPF
         private void CarregueElementosDoBancoDeDados()
         {
 
-            lstCompras.DataContext = repositorio.Liste();
+            lstVendas.DataContext = repositorio.Liste();
+
 
         }
 
@@ -53,8 +54,8 @@ namespace ControladorDePedidos.WPF
 
         private void btnNovo_Click(object sender, RoutedEventArgs e)
         {
-            var formCadastroDeCompra = new FormCadastroDeCompra();
-            formCadastroDeCompra.ShowDialog();
+            var formCadastroDeVenda = new FormCadastroDeVenda();
+            formCadastroDeVenda.ShowDialog();
             CarregueElementosDoBancoDeDados();
 
 
@@ -62,15 +63,15 @@ namespace ControladorDePedidos.WPF
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            if (lstCompras.SelectedItem == null)
+            if (lstVendas.SelectedItem == null)
             {
                 MessageBox.Show("Selecione um item");
                 return;
             }
-            var compra = (Compra)lstCompras.SelectedItem;
-                        
-            var formCadastroDeCompra = new FormCadastroDeCompra(compra);
-            formCadastroDeCompra.ShowDialog();
+            var venda = (Venda)lstVendas.SelectedItem;
+
+            var formCadastroDeVenda = new FormCadastroDeVenda(venda);
+            formCadastroDeVenda.ShowDialog();
             CarregueElementosDoBancoDeDados();
         }
 
@@ -84,130 +85,121 @@ namespace ControladorDePedidos.WPF
         private void btnDeletar_Click(object sender, RoutedEventArgs e)
         {
 
-            if (lstCompras.SelectedItem == null)
+            if (lstVendas.SelectedItem == null)
             {
                 MessageBox.Show("Selecione um item");
                 return;
             }
 
-            var compra = (Compra)lstCompras.SelectedItem;
-            repositorio.Excluir(compra);
+            var venda = (Venda)lstVendas.SelectedItem;
+            repositorio.Excluir(venda);
             CarregueElementosDoBancoDeDados();
 
         }
 
-        private void btnComprar_Click(object sender, RoutedEventArgs e)
+        private void btnVender_Click(object sender, RoutedEventArgs e)
         {
             /*
-             1. Listar item da compra para enviar ao fornecedor
-             2.enviar email ao fornecedor com a lista de compra
-             3 atualizar o banco de dados informando que a compra foi realizada
+             1. Listar item da venda para enviar ao fornecedor
+             2.enviar email ao fornecedor com a lista de venda
+             3 atualizar o banco de dados informando que a venda foi realizada
              */
-            var compra = (Compra)lstCompras.SelectedItem;
+            var venda = (Venda)lstVendas.SelectedItem;
             //1
-            if (lstCompras.SelectedItem == null)
+            if (lstVendas.SelectedItem == null)
             {
                 MessageBox.Show("Selecione um item");
                 return;
             }
 
-            if (compra.Status != eStatusDaCompra.NOVA)
+            if (venda.Status != eStatusDaVenda.NOVA)
             {
-                MessageBox.Show("Essa compra ja foi efetivada");
+                MessageBox.Show("Essa venda ja foi efetivada");
                 return;
             }
 
-            if (compra.ItensDaCompra.Count == 0)
+            if (venda.ItensDaVenda.Count == 0)
             {
-                MessageBox.Show("Nenhum item a ser comprado nessa solicitação");
+                MessageBox.Show("Nenhum item a ser vendado nessa solicitação");
                 return;
             }
 
-            List<ItemDaCompra> itensDaCompra = ObterItendaCompra(compra);
+            var itensDaVenda = ObterItendaVenda(venda);
 
-            string listaString = "";
 
-            foreach (var item in itensDaCompra)
-            {
-                listaString += $"{item.Quantidade} - {item.Produto.Nome} {item.Produto.Marca.nome} /n";
-            }
 
-            //2
+            //3 atualizar o banco de dados informando que a venda foi realizada
+            venda.Status = eStatusDaVenda.EFETIVADA;
+            venda.DataDaEfetivacao = DateTime.Now;
 
-            //Todo enviar email
-
-            //3
-            compra.Status = eStatusDaCompra.EFETIVADA;
-            compra.DataDaEfetivacao = DateTime.Now;
-
-            repositorio.Atualize(compra);
+            repositorio.Atualize(venda);
             CarregueElementosDoBancoDeDados();
 
 
 
         }
 
-        private static List<ItemDaCompra> ObterItendaCompra(Compra compra)
+        private static List<ItemDaVenda> ObterItendaVenda(Venda venda)
         {
-            var repositorioItemdaCompra = new RepositorioItemDaCompra();
-            var itensDaCompra = repositorioItemdaCompra.Liste(compra.Codigo);
-            return itensDaCompra;
+            var repositorioItemdaVenda = new RepositorioItemDaVenda();
+            var itensDaVenda = repositorioItemdaVenda.Liste(venda.Codigo);
+            return itensDaVenda;
         }
 
-        private void btnCompraRecebida_Click(object sender, RoutedEventArgs e)
+        private void btnVendaRecebida_Click(object sender, RoutedEventArgs e)
         {
             //Adicionar no estoque e 
-            var compra = (Compra)lstCompras.SelectedItem;
-            
-            if (lstCompras.SelectedItem == null)
+            var venda = (Venda)lstVendas.SelectedItem;
+
+            if (lstVendas.SelectedItem == null)
             {
                 MessageBox.Show("Selecione um item");
                 return;
             }
 
-            if (compra.Status != eStatusDaCompra.EFETIVADA)
+            if (venda.Status != eStatusDaVenda.EFETIVADA)
             {
-                MessageBox.Show("Essa Compra deve estar em Efetivada");
+                MessageBox.Show("Essa Venda deve estar em Efetivada");
                 return;
             }
 
             //Atualizar o estoque
-            var itenDaCompra = ObterItendaCompra(compra);
+            var itenDaVenda = ObterItendaVenda(venda);
             var repositorioDeProduto = new RepositorioProduto();
-            foreach (var item in itenDaCompra)
+            foreach (var item in itenDaVenda)
             {
-                var produtoDaCompra = item.Produto;
-                 var produtoDoBanco = repositorioDeProduto.Buscar(produtoDaCompra.Codigo);
+                var produtoDaVenda = item.Produto;
+                var produtoDoBanco = repositorioDeProduto.Buscar(produtoDaVenda.Codigo);
                 produtoDoBanco.QuantidadeEmEstoque += item.Quantidade;
                 repositorioDeProduto.Atualize(produtoDoBanco);
             }
 
             //atualizar o banco de dados
 
-            compra.Status = eStatusDaCompra.RECEBIDA;
-            compra.DataDoRecebimento = DateTime.Now;
-            repositorio.Atualize(compra);
+            venda.Status = eStatusDaVenda.EFETIVADA;
+            venda.DataDaEfetivacao = DateTime.Now;
+            repositorio.Atualize(venda);
             CarregueElementosDoBancoDeDados();
 
-            
 
-           
-            
-                
+
+
+
+
 
         }
 
-        private void btnRelatorioDeCompra_Click(object sender, RoutedEventArgs e)
+        private void btnRelatorioDeVenda_Click(object sender, RoutedEventArgs e)
         {
-            if (lstCompras.SelectedItem == null)
+            if (lstVendas.SelectedItem == null)
             {
                 MessageBox.Show("Selecione um item");
                 return;
             }
 
-            var compra = (Compra)lstCompras.SelectedItem;
-            var formRelatorioDeCompra = new FormRelatorioCompra(compra);
-            formRelatorioDeCompra.ShowDialog();
+            var venda = (Venda)lstVendas.SelectedItem;
+            var formRelatorioDeVenda = new FormRelatorioVenda(venda);
+            formRelatorioDeVenda.ShowDialog();
 
         }
 
@@ -226,12 +218,13 @@ namespace ControladorDePedidos.WPF
                 MessageBox.Show("Data Futura não pode ser menor");
                 return;
             }
-            lstCompras.DataContext = repositorio.Buscar(dtpFiltroDe.SelectedDate, dtpFiltroAte.SelectedDate);
+            lstVendas.DataContext = repositorio.Buscar(dtpFiltroDe.SelectedDate, dtpFiltroAte.SelectedDate);
         }
 
         private void dtpFiltroAte_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             dtpFiltroAte.SelectedDate = DateTime.Now;
         }
-    }
+
+    }  
 }

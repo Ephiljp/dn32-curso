@@ -7,16 +7,10 @@ using System.Threading.Tasks;
 
 namespace ControladorDePedidos.Model
 {
-    public class Cliente: ClasseBase
+    public class ClasseBase
     {
-    
+        [Key]
 
-        public string Nome { get; set; }
-
-        public string Telefone { get; set; }
-
-        public string Endereco { get; set; }
-
-
+        public int Codigo { get; set; }
     }
 }

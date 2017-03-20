@@ -8,26 +8,18 @@ using System.Threading.Tasks;
 
 namespace ControladorDePedidos.Model
 {
-    public class ItemDaCompra : ClasseBase
+    public class ItemDaVenda: ClasseBase
     {
 
         public virtual Produto Produto { get; set; }
 
-        public virtual Compra Compra { get; set; }
+        public virtual Venda Venda { get; set; }
 
         public int Quantidade { get; set; }
 
         public decimal Valor { get; set; }
 
-        [NotMapped]
-
-        public int QuantidadeFinalEmEstoque {
-            get
-            {
-              return  Produto.QuantidadeEmEstoque + Quantidade;
-            }
-        }
-
+        
         [NotMapped]
 
         public decimal ValorTotal {
@@ -52,7 +44,7 @@ namespace ControladorDePedidos.Model
         {
             get
             {
-                return Compra.DataDeCadastro;
+                return Venda.DataDeCadastro;
             }
         }
     }

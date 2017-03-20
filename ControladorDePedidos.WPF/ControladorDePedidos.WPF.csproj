@@ -92,6 +92,15 @@
     </ApplicationDefinition>
     <Compile Include="Conversores\ConversorDeData.cs" />
     <Compile Include="Conversores\ConversorDeEstoque.cs" />
+    <Compile Include="FormCadastroDeVenda.xaml.cs">
+      <DependentUpon>FormCadastroDeVenda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormRelatorioVenda.xaml.cs">
+      <DependentUpon>FormRelatorioVenda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormVendas.xaml.cs">
+      <DependentUpon>FormVendas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormRelatorioCompra.xaml.cs">
       <DependentUpon>FormRelatorioCompra.xaml</DependentUpon>
     </Compile>
@@ -103,6 +112,10 @@
     <Page Include="FormCadastroDeCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormCadastroDeVenda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="FormCadastroDeCompra.xaml">
       <SubType>Designer</SubType>
@@ -123,6 +136,14 @@
     <Page Include="FormClientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormRelatorioVenda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FormVendas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="FormCompras.xaml">
       <SubType>Designer</SubType>
@@ -208,10 +229,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RelatorioDeVenda.rdlc" />
     <EmbeddedResource Include="RelatorioDeCompra.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ControladorDePedidos.Model.Compra.datasource" />
     <None Include="Properties\DataSources\ControladorDePedidos.Model.ItemDaCompra.datasource" />
+    <None Include="Properties\DataSources\ControladorDePedidos.Model.ItemDaVenda.datasource" />
     <None Include="Properties\DataSources\ControladorDePedidos.Model.Produto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

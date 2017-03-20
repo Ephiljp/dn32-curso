@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ControladorDePedidos.Model
 {
-    public class Marca: ClasseBase
-
+    public enum eStatusDaVenda
     {
-
-        public string nome { get; set; }
+        NOVA,
+        EFETIVADA
+        
 
     }
 }

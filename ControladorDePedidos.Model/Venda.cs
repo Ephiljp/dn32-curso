@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace ControladorDePedidos.Model
 {
-    public class Compra: ClasseBase
+    public class Venda: ClasseBase
     {
 
         public DateTime DataDeCadastro { get; set; }
 
         public DateTime DataDaEfetivacao { get; set; }
 
-        public DateTime DataDoRecebimento { get; set; }
+        
 
 
-        public virtual List<ItemDaCompra> ItensDaCompra { get; set; }
+        public virtual List<ItemDaVenda> ItensDaVenda { get; set; }
 
-        public eStatusDaCompra Status { get; set; }
+        public eStatusDaVenda Status { get; set; }
 
         [NotMapped]
 
@@ -30,7 +30,7 @@ namespace ControladorDePedidos.Model
             {
                 int quantidade = 0;
 
-                foreach (var item in ItensDaCompra)
+                foreach (var item in ItensDaVenda)
                 {
                     quantidade = quantidade + item.Quantidade;
                 }
@@ -45,7 +45,7 @@ namespace ControladorDePedidos.Model
             {
                 decimal valor = 0;
 
-                foreach (var item in ItensDaCompra)
+                foreach (var item in ItensDaVenda)
                 {
                     valor = valor + item.ValorTotal;
                 }

@@ -18,25 +18,25 @@ using Microsoft.Reporting.WinForms;
 namespace ControladorDePedidos.WPF
 {
     /// <summary>
-    /// Interaction logic for RelatorioCompra.xaml
+    /// Interaction logic for RelatorioVenda.xaml
     /// </summary>
-    public partial class FormRelatorioCompra : Window
+    public partial class FormRelatorioVenda : Window
     {
 
-        public FormRelatorioCompra()
+        public FormRelatorioVenda()
         {
             InitializeComponent();
             
         }
 
 
-        public FormRelatorioCompra(Compra compra)
+        public FormRelatorioVenda(Venda venda)
         {
 
             InitializeComponent();
 
             
-            var dadosRelatorio = compra.ItensDaCompra;
+            var dadosRelatorio = venda.ItensDaVenda;
            
            
 
@@ -48,7 +48,7 @@ namespace ControladorDePedidos.WPF
             
 
 
-            ReportViewer.LocalReport.ReportEmbeddedResource = "ControladorDePedidos.WPF.RelatorioDeCompra.rdlc";
+            ReportViewer.LocalReport.ReportEmbeddedResource = "ControladorDePedidos.WPF.RelatorioDeVenda.rdlc";
 
             ReportViewer.RefreshReport();
         }

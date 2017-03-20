@@ -17,52 +17,52 @@ using System.Windows.Shapes;
 namespace ControladorDePedidos.WPF
 {
     /// <summary>
-    /// Interaction logic for FormCadastroDeCompra.xaml
+    /// Interaction logic for FormCadastroDeVenda.xaml
     /// </summary>
-    public partial class FormCadastroDeCompra : Window
+    public partial class FormCadastroDeVenda : Window
     {
 
-        RepositorioCompra repositorio;
-        RepositorioItemDaCompra repositorioItemDaCompra;
+        RepositorioVenda repositorio;
+        RepositorioItemDaVenda repositorioItemDaVenda;
         RepositorioProduto repositorioProduto;
 
         public int Codigo { get; set; }
 
-        public Compra Compra { get; set; }
+        public Venda Venda { get; set; }
        
 
-        public FormCadastroDeCompra()
+        public FormCadastroDeVenda()
         {
             InitializeComponent();
 
             Inicializeoperacoes();
 
-            var compra = new Compra
+            var venda = new Venda
             {
                 DataDeCadastro = DateTime.Now,
-                Status = eStatusDaCompra.NOVA
+                Status = eStatusDaVenda.NOVA
             };
             
-            repositorio.Adicione(compra);
+            repositorio.Adicione(venda);
 
-            lstProdutos.DataContext = compra.ItensDaCompra;
+            lstProdutos.DataContext = venda.ItensDaVenda;
 
-            Codigo = compra.Codigo;
-            Compra = compra;
+            Codigo = venda.Codigo;
+            Venda = venda;
             
         }
         
-        public FormCadastroDeCompra(Compra compra)
+        public FormCadastroDeVenda(Venda venda)
         {
 
             InitializeComponent();
             Inicializeoperacoes();
 
 
-            lstProdutos.DataContext = compra.ItensDaCompra;
-            Codigo = compra.Codigo;
+            lstProdutos.DataContext = venda.ItensDaVenda;
+            Codigo = venda.Codigo;
 
-            Compra = compra;
+            Venda = venda;
         }
 
 
@@ -78,26 +78,26 @@ namespace ControladorDePedidos.WPF
         {
             var listaEstoqueBaixo =  repositorioProduto.ObetnhaProdutosComEstoqueBaixo();
 
-            if (Compra.Status != eStatusDaCompra.NOVA)
+            if (Venda.Status != eStatusDaVenda.NOVA)
             {
-                MessageBox.Show("Não é possivel adicionar produtos a uma compra efetivada");
+                MessageBox.Show("Não é possivel adicionar produtos a uma venda efetivada");
                 return;
             }
 
             foreach (var produto in listaEstoqueBaixo)
             {
-                var itemDaCompra = new ItemDaCompra
+                var itemDaVenda = new ItemDaVenda
                 {
-                    Compra = new Compra { Codigo = this.Codigo },
+                    Venda = new Venda { Codigo = this.Codigo },
                     Produto = produto,
                     Quantidade = produto.QuantidadeDesejavelEmEstoque - produto.QuantidadeEmEstoque,
-                    Valor = produto.ValorDeCompra
+                    Valor = produto.ValorDeVenda
 
                 };
-                repositorioItemDaCompra.Adicione(itemDaCompra);  
+                repositorioItemDaVenda.Adicione(itemDaVenda);  
             }
 
-            lstProdutos.DataContext = repositorioItemDaCompra.Liste(Codigo);                                           
+            lstProdutos.DataContext = repositorioItemDaVenda.Liste(Codigo);                                           
 
             
         }
@@ -109,9 +109,9 @@ namespace ControladorDePedidos.WPF
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
-            if(Compra.Status != eStatusDaCompra.NOVA)
+            if(Venda.Status != eStatusDaVenda.NOVA)
             {
-                MessageBox.Show("Não é possivel excluir produtos de uma compra efetivada");
+                MessageBox.Show("Não é possivel excluir produtos de uma venda efetivada");
                 return;
             }
 
@@ -121,45 +121,45 @@ namespace ControladorDePedidos.WPF
                 return;
             }
 
-            var itemDaCompra = (ItemDaCompra)lstProdutos.SelectedItem;
-            repositorioItemDaCompra.Excluir(itemDaCompra);
-            lstProdutos.DataContext = repositorioItemDaCompra.Liste(Codigo);                                              
+            var itemDaVenda = (ItemDaVenda)lstProdutos.SelectedItem;
+            repositorioItemDaVenda.Excluir(itemDaVenda);
+            lstProdutos.DataContext = repositorioItemDaVenda.Liste(Codigo);                                              
 
         }
 
         private void btnAdicionar_Click(object sender, RoutedEventArgs e)
         {
 
-            if (Compra.Status != eStatusDaCompra.NOVA)
+            if (Venda.Status != eStatusDaVenda.NOVA)
             {
-                MessageBox.Show("Não é possivel excluir produtos de uma compra efetivada");
+                MessageBox.Show("Não é possivel excluir produtos de uma venda efetivada");
                 return;
             }
 
-            repositorioItemDaCompra = new RepositorioItemDaCompra();
+            repositorioItemDaVenda = new RepositorioItemDaVenda();
             var formulario = new FormBuscaDeProduto();
             formulario.ShowDialog();
 
             if (formulario.produtoSelecionado != null)
             {
-                var itemDaCompra = new ItemDaCompra
+                var itemDaVenda = new ItemDaVenda
                 {
-                    Compra = new Compra { Codigo = this.Codigo},
+                    Venda = new Venda { Codigo = this.Codigo},
                     Produto = formulario.produtoSelecionado,
                     Quantidade = formulario.Quantidade,
-                    Valor = formulario.produtoSelecionado.ValorDeCompra
+                    Valor = formulario.produtoSelecionado.ValorDeVenda
 
                 };
-                repositorioItemDaCompra.Adicione(itemDaCompra);  //Adicionar os produtos no banco de dados 
+                repositorioItemDaVenda.Adicione(itemDaVenda);  //Adicionar os produtos no banco de dados 
 
-                lstProdutos.DataContext = repositorioItemDaCompra.Liste(Codigo);                                                //recarregar a lista de produtos na tela
+                lstProdutos.DataContext = repositorioItemDaVenda.Liste(Codigo);                                                //recarregar a lista de produtos na tela
             }
         }
 
         private void Inicializeoperacoes()
         {
-            repositorio = new RepositorioCompra();
-            repositorioItemDaCompra = new RepositorioItemDaCompra();
+            repositorio = new RepositorioVenda();
+            repositorioItemDaVenda = new RepositorioItemDaVenda();
             repositorioProduto = new RepositorioProduto();
         }
 
