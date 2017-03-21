@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ControladorDePedidos.Repositorio
 {
@@ -43,10 +44,19 @@ namespace ControladorDePedidos.Repositorio
 
         public virtual void Excluir(T item)
         {
-            contexto = new Contexto();
-            var original = contexto.Set<T>().Find(item.Codigo);
-            contexto.Set<T>().Remove(original);
-            contexto.SaveChanges();
+            try
+            {
+                var original = contexto.Set<T>().Find(item.Codigo);
+                contexto.Set<T>().Remove(original);
+                contexto.SaveChanges();
+
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+
+                MessageBox.Show("Não é possivel excluir pois há itens associados");
+            }
+           
         }
     }
 }

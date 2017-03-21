@@ -126,18 +126,28 @@ namespace ControladorDePedidos.WPF
                 return;
             }
 
-            List<ItemDaCompra> itensDaCompra = ObterItendaCompra(compra);
+            var itensDaCompra = ObterItendaCompra(compra);
 
-            string listaString = "";
+            var listaAgrupada = itensDaCompra.GroupBy(x => x.Produto.Fornecedor).ToList();
 
-            foreach (var item in itensDaCompra)
+
+            foreach (var item in listaAgrupada)
             {
-                listaString += $"{item.Quantidade} - {item.Produto.Nome} {item.Produto.Marca.nome} /n";
+                var fornecedor = item.Key;
+                var itens = item.ToList();
+
+                string listaString = "";
+
+                foreach (var itemDaCompra in itens)
+                {
+                    listaString += $"{itemDaCompra.Quantidade} - {itemDaCompra.Produto.Nome} {itemDaCompra.Produto.Marca.nome} <br>";
+                }
+                EnviarEmail(fornecedor.Email, "Solicitação de compra",listaString);
+
             }
 
-            //2
+            //2 enviar email
 
-            EnviarEmail("felipe@gero.com.br","Teste de Software Dn32", "Mensagem de teste");
 
             //3
             compra.Status = eStatusDaCompra.EFETIVADA;
