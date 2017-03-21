@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ControladorDePedidos.Model;
 using Microsoft.Reporting.WinForms;
+using static ControladorDePedidos.WPF.FormCompras;
 
 namespace ControladorDePedidos.WPF
 {
@@ -22,6 +23,9 @@ namespace ControladorDePedidos.WPF
     /// </summary>
     public partial class FormRelatorioCompra : Window
     {
+        public int Codigo { get; set; }
+
+        public Compra Compra { get; set; }
 
         public FormRelatorioCompra()
         {
@@ -29,25 +33,30 @@ namespace ControladorDePedidos.WPF
             
         }
 
+       
 
         public FormRelatorioCompra(Compra compra)
         {
 
+
             InitializeComponent();
 
+            Codigo = compra.Codigo;
+
+            Compra = compra;
+
             
+
+
             var dadosRelatorio = compra.ItensDaCompra;
-           
-           
-
-            var dataSource = new ReportDataSource("DataSetRelatorio", dadosRelatorio);
-           
-
-
-            ReportViewer.LocalReport.DataSources.Add(dataSource);
             
+            
+            var dataSource = new ReportDataSource("DataSetRelatorio", dadosRelatorio);
 
+            
+            ReportViewer.LocalReport.DataSources.Add(dataSource);
 
+         
             ReportViewer.LocalReport.ReportEmbeddedResource = "ControladorDePedidos.WPF.RelatorioDeCompra.rdlc";
 
             ReportViewer.RefreshReport();

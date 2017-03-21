@@ -254,10 +254,16 @@
     <EmbeddedResource Include="RelatorioDeVenda.rdlc" />
     <EmbeddedResource Include="RelatorioDeCompra.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ControladorDePedidos.Model.ClasseBase.datasource" />
+    <None Include="Properties\DataSources\ControladorDePedidos.Model.Cliente.datasource" />
     <None Include="Properties\DataSources\ControladorDePedidos.Model.Compra.datasource" />
+    <None Include="Properties\DataSources\ControladorDePedidos.Model.Fornecedor.datasource" />
     <None Include="Properties\DataSources\ControladorDePedidos.Model.ItemDaCompra.datasource" />
     <None Include="Properties\DataSources\ControladorDePedidos.Model.ItemDaVenda.datasource" />
+    <None Include="Properties\DataSources\ControladorDePedidos.Model.Marca.datasource" />
     <None Include="Properties\DataSources\ControladorDePedidos.Model.Produto.datasource" />
+    <None Include="Properties\DataSources\ControladorDePedidos.Model.Usuario.datasource" />
+    <None Include="Properties\DataSources\ControladorDePedidos.Model.Venda.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

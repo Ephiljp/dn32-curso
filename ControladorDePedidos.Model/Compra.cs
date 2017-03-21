@@ -22,6 +22,7 @@ namespace ControladorDePedidos.Model
 
         public eStatusDaCompra Status { get; set; }
 
+      
         [NotMapped]
 
         public int QuantidadeDeProdutos
@@ -54,6 +55,6 @@ namespace ControladorDePedidos.Model
             
         }
 
-        
+     
     }
 }

@@ -21,25 +21,38 @@ namespace ControladorDePedidos.Model
 
         [NotMapped]
 
-        public int QuantidadeFinalEmEstoque {
+        public int CodigoCompra
+        {
             get
             {
-              return  Produto.QuantidadeEmEstoque + Quantidade;
+                return Compra.Codigo;
             }
         }
 
         [NotMapped]
 
-        public decimal ValorTotal {
+        public int QuantidadeFinalEmEstoque
+        {
             get
             {
-                 return Quantidade * Valor;
+                return Produto.QuantidadeEmEstoque + Quantidade;
             }
-                
-                }
+        }
+
         [NotMapped]
 
-        public string Nome {
+        public decimal ValorTotal
+        {
+            get
+            {
+                return Quantidade * Valor;
+            }
+
+        }
+        [NotMapped]
+
+        public string Nome
+        {
             get
             {
                 return Produto.Nome;
@@ -55,5 +68,8 @@ namespace ControladorDePedidos.Model
                 return Compra.DataDeCadastro;
             }
         }
+
+       
+
     }
 }

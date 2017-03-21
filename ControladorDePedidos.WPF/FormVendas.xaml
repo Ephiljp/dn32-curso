@@ -48,6 +48,7 @@
             <ListView.View>
                 <GridView>
 
+                    <GridViewColumn Header="Codigo de venda" Width="100" DisplayMemberBinding="{Binding Codigo}"/>
                     <GridViewColumn Header="Valor total" Width="90" DisplayMemberBinding="{Binding ValorTotal, ConverterCulture=pt-BR, StringFormat = C }"/>
                     <GridViewColumn Header="Quantidade de produtos" Width="150" DisplayMemberBinding="{Binding QuantidadeDeProdutos}"  />
                     <GridViewColumn Header="Data da cadastro" Width="95" DisplayMemberBinding="{Binding Path=DataDeCadastro, Converter={StaticResource ConversorDeData}}" />

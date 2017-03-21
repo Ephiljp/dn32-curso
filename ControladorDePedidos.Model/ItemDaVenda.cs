@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControladorDePedidos.Model
 {
-    public class ItemDaVenda: ClasseBase
+    public class ItemDaVenda : ClasseBase
     {
 
         public virtual Produto Produto { get; set; }
@@ -19,19 +19,30 @@ namespace ControladorDePedidos.Model
 
         public decimal Valor { get; set; }
 
-        
         [NotMapped]
-
-        public decimal ValorTotal {
+        public decimal CodigoVenda
+        {
             get
             {
-                 return Quantidade * Valor;
+                return Venda.Codigo;
             }
-                
-                }
-        [NotMapped]
 
-        public string Nome {
+        }
+
+
+        [NotMapped]
+        public decimal ValorTotal
+        {
+            get
+            {
+                return Quantidade * Valor;
+            }
+
+        }
+
+        [NotMapped]
+        public string Nome
+        {
             get
             {
                 return Produto.Nome;
@@ -39,7 +50,6 @@ namespace ControladorDePedidos.Model
         }
 
         [NotMapped]
-
         public DateTime DataDeCadastro
         {
             get
