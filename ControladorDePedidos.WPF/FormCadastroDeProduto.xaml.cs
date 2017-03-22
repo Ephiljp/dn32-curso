@@ -57,6 +57,7 @@ namespace ControladorDePedidos.WPF
             if (cmbMarcas.SelectedItem == null)
             {
                 MessageBox.Show("Selecione uma marca");
+                return;
             }
             else
             {
@@ -66,6 +67,7 @@ namespace ControladorDePedidos.WPF
             if (cmbFornecedor.SelectedItem == null)
             {
                 MessageBox.Show("Selecione uma fornecedor");
+                return;
             }
             else
             {

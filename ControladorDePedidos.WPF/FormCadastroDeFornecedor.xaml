@@ -7,23 +7,21 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         xmlns:Controls="clr-namespace:dn32ImageButton.Controls;assembly=dn32Layout" 
-        Title="Cadastro de Fornecedor" Height="231.201" Width="314.602" ResizeMode="NoResize">
+        Title="Cadastro de Fornecedor" Height="180.534" Width="314.602" ResizeMode="NoResize">
     <Window.Resources>
         <ResourceDictionary Source="/dn32Layout;component/Themes/dn32ImageButton.xaml"></ResourceDictionary>
     </Window.Resources>
 
     <Grid>
-        <TextBox x:Name="txtCodigo" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="78,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210"/>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="78,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210"/>
-        <TextBlock TextAlignment="Right" x:Name="textBlock" HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="Código:" VerticalAlignment="Top"/>
-        <TextBlock TextAlignment="Right" x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="16,42,0,0" TextWrapping="Wrap" Text="Nome:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="72,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210"/>
+        <TextBlock TextAlignment="Right" x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,16,0,0" TextWrapping="Wrap" Text="Nome:" VerticalAlignment="Top"/>
         <Controls:dn32ImageButton x:Name="btnSalvar" 
                 Text="Salvar"
                 Style="{DynamicResource dn32ButtonStyle}"
                 NormalImage="/dn32Layout;component/img/salvar.png"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="65" Margin="234,131,0,0" ImageSize="32" FontSize="12" Padding="3" Click="btnSalvar_Click"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="78,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210"/>
-        <TextBlock TextAlignment="Right" x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="16,74,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
+                HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="65" Margin="228,71,0,0" ImageSize="32" FontSize="12" Padding="3" Click="btnSalvar_Click"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="72,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210"/>
+        <TextBlock TextAlignment="Right" x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,48,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -7,7 +7,7 @@ namespace ControladorDePedidos.WPF
 
     public partial class FormCadastroDeFornecedor : Window
     {
-       
+        public int Codigo { get; set; }
         public FormCadastroDeFornecedor()
         {
             InitializeComponent();
@@ -17,7 +17,7 @@ namespace ControladorDePedidos.WPF
         public FormCadastroDeFornecedor(Fornecedor fornecedor)
         {
             InitializeComponent();
-            txtCodigo.Text = fornecedor.Codigo.ToString();
+            Codigo = fornecedor.Codigo;
             txtNome.Text = fornecedor.Nome;
             txtEmail.Text = fornecedor.Email;
 
@@ -27,12 +27,12 @@ namespace ControladorDePedidos.WPF
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            var codigo = txtCodigo.Text;
+            var codigo = Codigo;
             var nome = txtNome.Text;
             var email = txtEmail.Text;
             var repositorio = new RepositorioFornecedor();
 
-            if (codigo == "")
+            if (codigo == 0)
             {
                 //Novo cadastro
                 var fornecedor = new Fornecedor
@@ -49,7 +49,7 @@ namespace ControladorDePedidos.WPF
                 //Editando
                 var fornecedor = new Fornecedor
                 {
-                    Codigo = int.Parse(codigo),
+                    Codigo = codigo,
                     Nome = nome,
                     Email = email
                 };

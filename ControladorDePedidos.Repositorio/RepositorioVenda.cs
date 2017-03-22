@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ControladorDePedidos.Repositorio
 {
@@ -21,6 +19,23 @@ namespace ControladorDePedidos.Repositorio
             contexto = new Contexto();
             var lista = contexto.Set<Venda>().Where(x => DbFunctions.TruncateTime(x.DataDeCadastro) >= termoDe && DbFunctions.TruncateTime(x.DataDeCadastro) <= termoAte).ToList();
             return lista;
+        }
+
+        public override void Excluir(Venda item)
+        {
+            try
+            {
+                contexto.Set<ItemDaVenda>().RemoveRange(item.ItensDaVenda);
+                var original = contexto.Set<Venda>().Find(item.Codigo);
+                contexto.Set<Venda>().Remove(original);
+                contexto.SaveChanges();
+
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+
+                MessageBox.Show("Não é possivel excluir pois há itens associados");
+            }
         }
     }
 }

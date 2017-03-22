@@ -35,7 +35,6 @@
         <ListView x:Name="lstClientes" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,76,10,10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Key" Width="30" DisplayMemberBinding="{Binding Codigo}"/>
                     <GridViewColumn Header="Nome" Width="200" DisplayMemberBinding="{Binding Nome}"/>
                     <GridViewColumn Header="Telefone" Width="100" DisplayMemberBinding="{Binding Telefone}"/>
                     <GridViewColumn Header="Endereço" Width="200" DisplayMemberBinding="{Binding Endereco}"/>

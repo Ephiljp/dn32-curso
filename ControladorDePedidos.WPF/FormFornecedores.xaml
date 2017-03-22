@@ -35,8 +35,8 @@
         <ListView x:Name="lstFornecedores" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,76,10,10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Código" Width="50" DisplayMemberBinding="{Binding Codigo}"/>
-                    <GridViewColumn Header="Nome" Width="300" DisplayMemberBinding="{Binding Nome}"/>
+                    <GridViewColumn Header="Nome" Width="200" DisplayMemberBinding="{Binding Nome}"/>
+                    <GridViewColumn Header="Email" Width="200" DisplayMemberBinding="{Binding Email}"/>
                 </GridView>
             </ListView.View>
         </ListView>
