@@ -320,7 +320,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.32802cm</Width>
+              <Width>2.19573cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -379,7 +379,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>3.0424cm</Size>
+                <Size>2.91011cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox5">
                     <CanGrow>true</CanGrow>
@@ -413,9 +413,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSetRelatorio</DataSetName>
         <Top>0.79375cm</Top>
-        <Left>10.11862cm</Left>
+        <Left>10.3832cm</Left>
         <Height>0.6cm</Height>
-        <Width>5.37042cm</Width>
+        <Width>5.10584cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -504,7 +504,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>1.16099cm</Top>
+        <Top>0.17639cm</Top>
         <Left>1.03411cm</Left>
         <Height>0.6cm</Height>
         <Width>3.31707cm</Width>
@@ -536,11 +536,71 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>1.16099cm</Top>
+        <Top>0.17639cm</Top>
         <Left>4.59606cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Cliente:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>1.23154cm</Top>
+        <Left>1.03411cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.36229cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox8">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!ClienteNome.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox8</rd:DefaultName>
+        <Top>1.23154cm</Top>
+        <Left>2.57279cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -747,6 +807,14 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="Cliente">
+          <DataField>Cliente</DataField>
+          <rd:TypeName>ControladorDePedidos.Model.Cliente</rd:TypeName>
+        </Field>
+        <Field Name="ClienteNome">
+          <DataField>ClienteNome</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Codigo">
           <DataField>Codigo</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>

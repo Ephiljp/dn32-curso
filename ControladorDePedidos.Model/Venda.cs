@@ -8,19 +8,20 @@ using System.Threading.Tasks;
 
 namespace ControladorDePedidos.Model
 {
-    public class Venda: ClasseBase
+    public class Venda : ClasseBase
     {
 
         public DateTime DataDeCadastro { get; set; }
 
         public DateTime DataDaEfetivacao { get; set; }
 
-        
-
-
         public virtual List<ItemDaVenda> ItensDaVenda { get; set; }
 
         public eStatusDaVenda Status { get; set; }
+
+        public virtual Cliente Cliente { get; set; }
+
+      
 
         [NotMapped]
 
@@ -38,9 +39,10 @@ namespace ControladorDePedidos.Model
             }
         }
 
-            [NotMapped]
+        [NotMapped]
 
-        public decimal ValorTotal {
+        public decimal ValorTotal
+        {
             get
             {
                 decimal valor = 0;
@@ -51,9 +53,9 @@ namespace ControladorDePedidos.Model
                 }
                 return valor;
             }
-            
+
         }
 
-        
+
     }
 }

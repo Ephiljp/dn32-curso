@@ -10,7 +10,13 @@ namespace ControladorDePedidos.Repositorio
     public class RepositorioCliente : RepositorioGenerico <Cliente>
     {
 
-       
-      
+        public List<Cliente> Buscar(string termoDaBusca)
+        {
+            contexto = new Contexto();
+            return contexto.Set<Cliente>().Where(x => x.Nome.Contains(termoDaBusca)).ToList();
+            
+        }
+
+
     }
 }

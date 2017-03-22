@@ -58,11 +58,16 @@ namespace ControladorDePedidos.WPF
             InitializeComponent();
             Inicializeoperacoes();
 
-
+            
             lstProdutos.DataContext = venda.ItensDaVenda;
             Codigo = venda.Codigo;
 
             Venda = venda;
+
+            if (Venda.Cliente != null)
+            {
+                txtCliente.Text = Venda.Cliente.Nome;
+            }
         }
 
 
@@ -102,8 +107,16 @@ namespace ControladorDePedidos.WPF
             
         }
 
-        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        private void btnClientes_Click(object sender, RoutedEventArgs e)
         {
+            var buscaDeCliente = new FormBuscaDeCliente();
+            buscaDeCliente.ShowDialog();
+            Venda.Cliente = buscaDeCliente.ClienteSelecionado;
+            if (Venda.Cliente != null)
+            {
+                txtCliente.Text = Venda.Cliente.Nome;
+            }
+            repositorio.Atualize(Venda);
 
         }
 
@@ -163,7 +176,6 @@ namespace ControladorDePedidos.WPF
             repositorioProduto = new RepositorioProduto();
         }
 
-        
-      
+     
     }
 }

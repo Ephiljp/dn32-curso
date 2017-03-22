@@ -17,6 +17,8 @@ namespace ControladorDePedidos.Model
 
         public string Endereco { get; set; }
 
+        public List<Venda> Vendas { get; set; }
+
 
     }
 }

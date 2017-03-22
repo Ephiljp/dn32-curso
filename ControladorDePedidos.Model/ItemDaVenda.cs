@@ -19,6 +19,29 @@ namespace ControladorDePedidos.Model
 
         public decimal Valor { get; set; }
 
+      
+
+        [NotMapped]
+        public string ClienteNome
+        {
+            get
+            {
+                try
+                {
+                    return Venda.Cliente.Nome;
+                }
+                catch (Exception)
+                {
+
+                    return "Avulso";
+                }
+                    
+                   
+               
+            }
+
+        }
+
         [NotMapped]
         public decimal CodigoVenda
         {

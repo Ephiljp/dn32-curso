@@ -92,6 +92,9 @@
     </ApplicationDefinition>
     <Compile Include="Conversores\ConversorDeData.cs" />
     <Compile Include="Conversores\ConversorDeEstoque.cs" />
+    <Compile Include="FormBuscaDeCliente.xaml.cs">
+      <DependentUpon>FormBuscaDeCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormCadastroDeFornecedor.xaml.cs">
       <DependentUpon>FormCadastroDeFornecedor.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utilitarios.cs" />
+    <Page Include="FormBuscaDeCliente.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="FormBuscaDeProduto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
