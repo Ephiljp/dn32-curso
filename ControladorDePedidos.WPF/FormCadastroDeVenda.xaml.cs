@@ -72,43 +72,24 @@ namespace ControladorDePedidos.WPF
 
 
        
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-         
-
-        }
        
 
-        private void btnObterRecomendacao_Click(object sender, RoutedEventArgs e)
+
+        private void Inicializeoperacoes()
         {
-            var listaEstoqueBaixo =  repositorioProduto.ObetnhaProdutosComEstoqueBaixo();
-
-            if (Venda.Status != eStatusDaVenda.NOVA)
-            {
-                MessageBox.Show("Não é possivel adicionar produtos a uma venda efetivada");
-                return;
-            }
-
-            foreach (var produto in listaEstoqueBaixo)
-            {
-                var itemDaVenda = new ItemDaVenda
-                {
-                    Venda = new Venda { Codigo = this.Codigo },
-                    Produto = produto,
-                    Quantidade = produto.QuantidadeDesejavelEmEstoque - produto.QuantidadeEmEstoque,
-                    Valor = produto.ValorDeVenda
-
-                };
-                repositorioItemDaVenda.Adicione(itemDaVenda);  
-            }
-
-            lstProdutos.DataContext = repositorioItemDaVenda.Liste(Codigo);                                           
-
-            
+            repositorio = new RepositorioVenda();
+            repositorioItemDaVenda = new RepositorioItemDaVenda();
+            repositorioProduto = new RepositorioProduto();
         }
 
         private void btnClientes_Click(object sender, RoutedEventArgs e)
         {
+            if (Venda.Status != eStatusDaVenda.NOVA)
+            {
+                MessageBox.Show("Não é possivel Alterar o cliente de uma venda efetivada");
+                return;
+            }
+
             var buscaDeCliente = new FormBuscaDeCliente();
             buscaDeCliente.ShowDialog();
             Venda.Cliente = buscaDeCliente.ClienteSelecionado;
@@ -169,12 +150,7 @@ namespace ControladorDePedidos.WPF
             }
         }
 
-        private void Inicializeoperacoes()
-        {
-            repositorio = new RepositorioVenda();
-            repositorioItemDaVenda = new RepositorioItemDaVenda();
-            repositorioProduto = new RepositorioProduto();
-        }
+     
 
      
     }

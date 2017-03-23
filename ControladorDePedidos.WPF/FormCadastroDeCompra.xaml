@@ -14,13 +14,13 @@
         >
     <Window.Resources>
         <ResourceDictionary Source="/dn32Layout;component/Themes/dn32ImageButton.xaml"/>
-        
+
     </Window.Resources>
-    
+
 
     <Grid Margin="10,0,6,-1" Height="284" VerticalAlignment="Bottom">
         <ListView x:Name="lstProdutos" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,0,10,12" Height="211" VerticalAlignment="Bottom" >
-            
+
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Codigo " Width="90" DisplayMemberBinding="{Binding Compra.Codigo}"/>
@@ -48,8 +48,7 @@
         <Controls:dn32ImageButton x:Name="btnAdicionar" 
             Text="Adicionar"
             Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/ControladorDePedidos.WPF;component/img/adicionar.png"
-            HorizontalAlignment="Left" Width="65" Margin="149,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" />
+            NormalImage="/dn32Layout;component/img/salvar.png" HorizontalAlignment="Left" Width="65" Margin="149,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" />
 
     </Grid>
 </Window>

@@ -32,15 +32,18 @@
                 <GridView>
 
                     <GridViewColumn Header="Nome" Width="180" DisplayMemberBinding="{Binding Nome}"/>
-                
+
 
                 </GridView>
             </ListView.View>
         </ListView>
         <Controls:dn32ImageButton x:Name="btnSelecionar" 
-            Text="Selecionar"
-            Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/ControladorDePedidos.WPF;component/img/adicionar.png" Margin="0,0,10,0" ImageSize="32" FontSize="12" Padding="3" Click="btnSelecionar_Click" HorizontalAlignment="Right" Width="72" Height="61" VerticalAlignment="Top" />
+                Text="Salvar"
+                Style="{DynamicResource dn32ButtonStyle}"
+                NormalImage="/dn32Layout;component/img/salvar.png" Margin="0,0,10,198" ImageSize="25" FontSize="12" Padding="3" Click="btnSelecionar_Click" HorizontalAlignment="Right" Width="65" Height="56" VerticalAlignment="Bottom"/>
+
 
     </Grid>
+
+
 </Window>

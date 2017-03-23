@@ -71,7 +71,7 @@
         <Controls:dn32ImageButton x:Name="btnRelatorioDeVenda" 
             Text="Imprimir relatório"
             Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/ControladorDePedidos.WPF;component/img/print.png"
+            NormalImage="/dn32Layout;component/img/imprimir.png"
             HorizontalAlignment="Right" VerticalAlignment="Top" Height="61" Width="117" Margin="0,10,491,0" ImageSize="32" FontSize="12" Padding="3" Click="btnRelatorioDeVenda_Click"/>
         <DatePicker x:Name="dtpFiltroDe" HorizontalAlignment="Right" Margin="0,9.95,303,0" VerticalAlignment="Top" Width="113" UseLayoutRounding="False" TextOptions.TextFormattingMode="Display" />
         <Label Content="Filtrar de:" HorizontalAlignment="Right" Margin="0,8,416,0" VerticalAlignment="Top"/>
@@ -80,7 +80,7 @@
         <Controls:dn32ImageButton x:Name="btnFiltrar" 
             Text="Filtrar"
             Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/ControladorDePedidos.WPF;component/img/filtrar.png"
+            NormalImage="/dn32Layout;component/img/processar.png"
             HorizontalAlignment="Right" VerticalAlignment="Top" Height="61" Width="65" Margin="0,8,233,0" ImageSize="32" FontSize="12" Padding="3" Click="btnFiltrar_Click"/>
 
 

@@ -9,8 +9,7 @@
         xmlns:Controls="clr-namespace:dn32ImageButton.Controls;assembly=dn32Layout" 
         Title="Cadastro de Venda" Height="338.532" Width="960.83"
         
-       Loaded="Window_Loaded"
-        
+               
         
         >
     <Window.Resources>
@@ -40,7 +39,7 @@
         <Controls:dn32ImageButton x:Name="btnAdicionar" 
             Text="Adicionar Produto"
             Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/ControladorDePedidos.WPF;component/img/adicionar.png"
+            NormalImage="/dn32Layout;component/img/salvar.png"
             HorizontalAlignment="Left" Width="119" Margin="10,0,0,223" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" />
         <Controls:dn32ImageButton x:Name="btnClientes" 
             Text="Adicionar Cliente"

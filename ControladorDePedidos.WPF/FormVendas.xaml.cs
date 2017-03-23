@@ -12,11 +12,31 @@ namespace ControladorDePedidos.WPF
     {
         RepositorioVenda repositorio;
 
+        public Cliente Cliente { get; set; }
+
+
+
         public FormVendas()
         {
 
             repositorio = new RepositorioVenda();
             InitializeComponent();
+
+        }
+
+        public FormVendas(Cliente cliente)
+        {
+            InitializeComponent();
+            this.Title = "Vendas para o cliente " + cliente.Nome;
+            this.Cliente = cliente;
+            repositorio = new RepositorioVenda();
+
+            btnEditar.Visibility = Visibility.Hidden;
+            btnNovo.Visibility = Visibility.Hidden;
+            btnDeletar.Visibility = Visibility.Hidden;
+            btnAtualziar.Visibility = Visibility.Hidden;
+            
+            
 
         }
 
@@ -27,8 +47,16 @@ namespace ControladorDePedidos.WPF
         }
         private void CarregueElementosDoBancoDeDados()
         {
+            if (Cliente == null)
+            {
+                lstVendas.DataContext = repositorio.Liste();
 
-            lstVendas.DataContext = repositorio.Liste();
+            }
+            else
+            {
+                lstVendas.DataContext = repositorio.ListePorCliente(Cliente.Codigo);
+            }
+            
 
 
         }

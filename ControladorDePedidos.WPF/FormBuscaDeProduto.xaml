@@ -51,7 +51,7 @@
         <Controls:dn32ImageButton x:Name="btnAdicionar" 
             Text="Adicionar"
             Style="{DynamicResource dn32ButtonStyle}"
-            NormalImage="/ControladorDePedidos.WPF;component/img/adicionar.png" Margin="0,0,10,0" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" HorizontalAlignment="Right" Width="72" Height="61" VerticalAlignment="Top" />
+            NormalImage="/dn32Layout;component/img/salvar.png" Margin="0,0,10,0" ImageSize="32" FontSize="12" Padding="3" Click="btnAdicionar_Click" HorizontalAlignment="Right" Width="72" Height="61" VerticalAlignment="Top" />
         <TextBlock x:Name="textBlock1" Margin="0,20,209,0" TextWrapping="Wrap" Text="Quantidade:" VerticalAlignment="Top" HorizontalAlignment="Right" Width="65"/>
         <TextBox x:Name="txtQuantidade" HorizontalAlignment="Right" Margin="0,17,166,0" TextWrapping="Wrap" Text="1" Width="39" RenderTransformOrigin="0.472,0.459" TextAlignment="Right" Height="23" VerticalAlignment="Top"/>
 

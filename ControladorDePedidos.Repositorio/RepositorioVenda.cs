@@ -11,6 +11,12 @@ namespace ControladorDePedidos.Repositorio
     {
 
 
+        public  List<Venda> ListePorCliente(int codigoDocliente)
+        {
+            contexto = new Contexto();
+            return contexto.Set<Venda>().Where(x => x.Cliente.Codigo == codigoDocliente).ToList();
+        }
+
         public override void Adicione(Venda item)
         {
             if (item.Cliente != null)

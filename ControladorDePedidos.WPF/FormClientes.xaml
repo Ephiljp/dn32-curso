@@ -41,6 +41,11 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Controls:dn32ImageButton x:Name="btnListar" 
+            Text="Lista de pedidos"
+            Style="{DynamicResource dn32ButtonStyle}"
+            NormalImage="/dn32Layout;component/img/vendas.png"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="114" Margin="453,10,0,0" ImageSize="32" FontSize="12" Padding="3" Click="btnListar_Click"/>
 
     </Grid>
 </Window>

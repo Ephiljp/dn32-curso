@@ -81,16 +81,28 @@ namespace ControladorDePedidos.WPF
             }
 
 
-
-
-
         }
-
-
 
         private void btnAtualizar_Click(object sender, RoutedEventArgs e)
         {
             CarregueElementosDoBancoDeDados();
+
+        }
+
+        private void btnListar_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstClientes.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um item");
+
+            }
+            else
+            {
+                var itemSelecionado = (Cliente)lstClientes.SelectedItem;
+                var formPedidos = new FormVendas(itemSelecionado);
+                formPedidos.ShowDialog();
+
+            }
 
         }
     }
