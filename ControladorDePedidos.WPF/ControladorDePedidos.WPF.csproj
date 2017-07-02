@@ -326,7 +326,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ControladorDePedidos.Model\ControladorDePedidos.Model.csproj">
@@ -342,6 +344,7 @@
     <Resource Include="Store.ico" />
     <Resource Include="1490225163_Artboard_1.ico" />
     <Resource Include="readme.txt" />
+    <Resource Include="img\print.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -373,7 +376,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dependences\" />
-    <Folder Include="img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

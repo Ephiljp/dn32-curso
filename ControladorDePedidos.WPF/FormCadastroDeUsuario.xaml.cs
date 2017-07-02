@@ -49,10 +49,6 @@ namespace ControladorDePedidos.WPF
             }
 
            
-
-         
-
-
             if (usuario.Codigo == 0)
             {
                

@@ -120,7 +120,7 @@ namespace ControladorDePedidos.WPF
         {
             /*
              1. Listar item da venda para enviar ao fornecedor
-             2.enviar email ao fornecedor com a lista de venda
+        
              3 atualizar o banco de dados informando que a venda foi realizada
              */
             var venda = (Venda)lstVendas.SelectedItem;

@@ -1,5 +1,6 @@
 ﻿using ControladorDePedidos.Model;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -48,7 +49,7 @@ namespace ControladorDePedidos.Repositorio
                 contexto.SaveChanges();
 
             }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            catch (DbUpdateException)
             {
 
                 MessageBox.Show("Não é possivel excluir pois há itens associados");

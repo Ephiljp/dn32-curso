@@ -40,7 +40,7 @@
         <Controls:dn32ImageButton x:Name="btnSelecionar" 
                 Text="Salvar"
                 Style="{DynamicResource dn32ButtonStyle}"
-                NormalImage="/dn32Layout;component/img/salvar.png" Margin="0,0,10,198" ImageSize="25" FontSize="12" Padding="3" Click="btnSelecionar_Click" HorizontalAlignment="Right" Width="65" Height="56" VerticalAlignment="Bottom"/>
+                NormalImage="/dn32Layout;component/img/salvar.png" Margin="0,0,11,202" ImageSize="25" FontSize="12" Padding="3" Click="btnSelecionar_Click" HorizontalAlignment="Right" Width="65" Height="56" VerticalAlignment="Bottom"/>
 
 
     </Grid>
